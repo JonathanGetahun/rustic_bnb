@@ -3,6 +3,9 @@ import './App.css';
 import Home from './Home'
 import Header from './Header'
 import Footer from './Footer'
+import SearchPage from './SearchPage'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+
 
 function App() {
   return (
@@ -10,20 +13,21 @@ function App() {
     //BEM
     <div className="App">
 
-    <Header />
-    <Home />
-    <Footer />
-    {/*Home*/}
-        {/*Header */}
+    <Router>
+      <Header />
 
-        {/*Banner */}
-            {/*Search*/}
-        {/*Cards */}
+      <Switch>
+         <Route path="/search">
+          <SearchPage />
+         </Route>
+         
+         <Route path ="/">
+          <Home />
+         </Route>
+      </Switch>
 
-        {/* Footer */}
-
-    {/*SearchPage*/}
-        {/*...*/}
+      <Footer />
+    </Router>
     </div>
   )
 }
