@@ -1,0 +1,55 @@
+.search {
+    position: absolute;
+    align-items: center;
+    top: 35px;
+    left: 0;
+    width: 100vw;
+}
+
+.search > .pickle {
+    position: absolute;
+    left:32%;
+}
+
+.search > h3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    top:325px;
+    left:32%;
+    width:559px;
+    position: absolute;
+    padding: 10px;
+
+}
+
+.search > input {
+    width: 539px;
+    padding: 20px;
+    position: absolute;
+    left: 32vw;
+    height: 30px;
+    top: 380px;
+    border: none;
+  }
+
+.search > input:focus {
+    outline-width: 0;
+}
+
+.search > button {
+    position: absolute;
+    left: 32vw;
+    top: 430px;
+    text-transform: inherit !important;
+    background-color:green;
+    color: white;
+    width: 579px;
+  }
+
+.search > button:hover {
+    background-color: white;
+    color: green;
+}
+  

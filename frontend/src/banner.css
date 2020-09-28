@@ -1,0 +1,44 @@
+.banner {
+    /* vh = view height and so banner will take up 50% of the viewing screen */
+    height: 55vh;
+    /* relative because we will have things inside of it in different positions */
+    position: relative;
+
+    background: url(cabin.jpg)
+}
+
+.banner_info{
+    background-color: black;
+    color: white;
+    padding-top: 25vh;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 35px;
+    width: 300px;
+}
+
+.banner_search {
+    display: flex;
+    flex-direction: column; 
+}
+
+.banner_searchButton {
+    background-color: white !important;
+    font-weight: 900 !important;
+    text-transform: inherit !important;
+    color: green !important;
+}
+
+.banner_info > button {
+    background-color: green;
+    color: white;
+}
+
+.banner_info > button:hover {
+    background-color:white;
+    color: green;
+}
+
+.banner_info > h5 {
+    margin-top: 5px;
+}

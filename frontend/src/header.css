@@ -1,0 +1,45 @@
+.header {
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index:100;
+    width:100%;
+}
+
+.header_icon{
+    object-fit: contain;
+    height:100px;
+    margin-left:20px;
+}
+
+.header_center{
+    display: flex;
+    /* allows the input box to take up middle space */
+    flex:1;
+    align-items:center;
+    max-width: fit-content;
+    padding: 10px;
+    height: 30px;
+    border-radius: 999px;
+    border: 1px solid lightgray;
+}
+
+/* this takes the border off of the original input that comes with the text box
+input is a child of .header_center div */
+.header_center > input {
+    border:none;
+    padding: 10px;
+    /* gets rid of the ugly blue outline */
+    outline-width: 0;
+}
+
+.header_right {
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+    width: 15vw;
+    margin-right: 80px;
+}
