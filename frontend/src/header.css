@@ -12,7 +12,7 @@
 .header_icon{
     object-fit: contain;
     height:100px;
-    margin-left:20px;
+    margin-left:35px;
 }
 
 .header_center{
@@ -41,5 +41,5 @@ input is a child of .header_center div */
     align-items:center;
     justify-content:space-between;
     width: 15vw;
-    margin-right: 80px;
+    margin-right: 20px;
 }

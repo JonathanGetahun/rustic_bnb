@@ -11,7 +11,7 @@
     object-fit: cover;
     min-width: 300px;
     min-height: 200px;
-    width:400px;
+    /* width:400px; */
     height:400px;
     width: 100%;
 }

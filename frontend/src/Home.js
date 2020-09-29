@@ -12,7 +12,7 @@ function Home() {
             <div className="home_section">
                 <Card 
                     
-                    src="https://a0.muscache.com/im/pictures/9b6849e6-019b-46a5-a7d5-98736dcdeed2.jpg?im_w=1200"
+                    src="https://a0.muscache.com/im/pictures/22216b32-9a48-44e1-8747-b8acc23ddea3.jpg?im_w=1440"
                         title="Treehouses"
                         description="Comfortable private places, with 
                         room for friends or family"

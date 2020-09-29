@@ -29,6 +29,10 @@
     color: green !important;
 }
 
+.banner_searchButton:hover{
+    color: rgb(119, 128, 0) !important;
+}
+
 .banner_info > button {
     background-color: green;
     color: white;
