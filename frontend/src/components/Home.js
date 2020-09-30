@@ -1,5 +1,5 @@
 import React from 'react'
-import './home.css'
+import '../styling/home.css'
 import Card from './Card'
 import Banner from './Banner'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import './footer.css'
+import '../styling/footer.css'
 
 function Footer() {
     if(window.location.pathname==='/') return null;

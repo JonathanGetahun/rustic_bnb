@@ -1,0 +1,26 @@
+{
+  "name": "rustic_bnb",
+  "version": "1.0.0",
+  "description": "vacation rental marketplace for outdoor lodging",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonathanGetahun/rustic_bnb.git"
+  },
+  "author": "Jonathan Getahun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonathanGetahun/rustic_bnb/issues"
+  },
+  "homepage": "https://github.com/JonathanGetahun/rustic_bnb#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.7",
+    "nodemon": "^2.0.4"
+  }
+}

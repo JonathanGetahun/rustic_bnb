@@ -1,5 +1,5 @@
 import React from 'react'
-import './searchPage.css'
+import '../styling/searchPage.css'
 import { Button } from '@material-ui/core'
 import SearchResult from './SearchResults'
 
