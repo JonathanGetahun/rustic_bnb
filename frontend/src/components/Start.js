@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styling/start.css'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { Button } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
+import LoginContent from './Modal_Parts/Login_Content'
+
 
 function Start() {
     const history = useHistory();
+
+    const [show, setShow ] = useState(false);
+    const openModal = () => setShow(true);
+    const closeModal = () => setShow(false);
+
+
     return (
         
         <div className="bodyStart">
@@ -34,7 +42,13 @@ function Start() {
         </div>
         </div>
         <div className="start_authentication">
-        <Button className="login" variant="contained" color="primary" size="large"> Login </Button>
+        <Button className="login" 
+            variant="contained" 
+            color="primary" 
+            size="large"
+            onClick={() => openModal()}> Login </Button>
+            {show && <LoginContent closeModal={closeModal} show={show} />}
+
         <Button className="signup" variant="contained" size="large"> Sign-Up </Button>
         </div>
         </div>

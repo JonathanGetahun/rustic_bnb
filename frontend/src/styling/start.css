@@ -22,7 +22,7 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      z-index:100;
+      /* z-index:100; */
       background-color: rgba(61, 94, 34, 0.973);
       max-height: 400px;
       min-height: 400px;
