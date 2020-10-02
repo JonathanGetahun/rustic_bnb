@@ -26,18 +26,22 @@
     
     .modal {
     width: 400px;
+    max-width: 100%;
+    height: 350px;
+    max-height: 100%;
     position: relative;
-    margin: -540px auto;
+    margin: -830px auto;
     padding: 20px;
     background-color: #fff;
-    border-radius: 2px;
+    border-radius: 10px;
     transform: translateY(100%);
     transition: transform 0.2s ease;
     box-shadow: 0 2px 8px 3px;
     font-family: Helvetica, Arial, sans-serif;
     }
     
-    .modal button {
+    .modal #close {
+    color: green;
     position: absolute;
     right: -1rem;
     top: -1rem;
@@ -50,3 +54,60 @@
     cursor: pointer;
     border: 1px solid rgba(0, 0, 0, 0.562);
     }
+
+    .login_form{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .login_form h1{
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+    .login_form input{
+        display: block;
+        margin-left: 25px;
+        margin-bottom: 20px;
+        padding: 10px;
+        border-radius: 3px;
+        width: 80%;
+        border: 1px solid green;
+    }
+
+    .login_button {
+        margin-left: 25px;
+        background-color: #4CAF50;
+        transition-duration: 0.4s;
+        padding: 14px 150px;
+      }
+      
+      .login_button:hover {
+        cursor: pointer;
+        color: #4CAF50; /* Green */
+        background-color: white;
+      }
+
+      .login_demo {
+          text-align: center;
+          margin-top: 20px;
+          margin-bottom: 10px;
+      }
+
+      .login_demo_pointer{
+        cursor: pointer;
+        color: rgb(76, 76, 204);
+      }
+
+      .login_switch {
+          margin-left: 25px;
+          margin-top: 18px;
+      }
+
+      .signup_link {
+          font-size: 15px;
+          cursor: pointer;
+          background: none;
+          border:none;
+          color:rgb(76, 76, 204);
+      }

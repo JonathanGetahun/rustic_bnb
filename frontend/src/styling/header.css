@@ -39,7 +39,42 @@ input is a child of .header_center div */
 .header_right {
     display: flex;
     align-items:center;
-    justify-content:space-between;
+    justify-content:center;
     width: 15vw;
-    margin-right: 20px;
+    margin-right: -55px;
+}
+
+.header_expand {
+    cursor: pointer;
+}
+
+.header_dropdown {
+    border-radius:4px;
+    border-width:2px;
+    background-color: white;
+    width:100px;
+    height:100px;
+    display: block;
+    position: absolute;
+    margin-top:160px;
+    border-style:groove;
+}
+
+.hide {
+    display: none;
+}
+
+.header_dropdown > ul > li{
+    
+    margin-top:-5px;
+    list-style-type: none;
+    margin-left:-20px;
+    margin-bottom:10px;
+    padding: 5px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.header_dropdown > ul > li:hover{
+    color: green;
 }

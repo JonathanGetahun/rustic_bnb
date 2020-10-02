@@ -3,15 +3,20 @@ import '../styling/start.css'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { Button } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
-import LoginContent from './Modal_Parts/Login_Content'
+import LoginContent from './Modal_Parts/Login_Container'
+import SignUpContent from './Modal_Parts/SignUp_Container'
 
 
 function Start() {
     const history = useHistory();
 
-    const [show, setShow ] = useState(false);
-    const openModal = () => setShow(true);
-    const closeModal = () => setShow(false);
+    const [showLogin, setLogin ] = useState(false);
+    const openModalLogin = () => setLogin(true);
+    const closeModalLogin = () => setLogin(false);
+
+    const [showSignUp, setShow ] = useState(false);
+    const openModalSignUp = () => setShow(true);
+    const closeModalSignUp = () => setShow(false);
 
 
     return (
@@ -46,10 +51,14 @@ function Start() {
             variant="contained" 
             color="primary" 
             size="large"
-            onClick={() => openModal()}> Login </Button>
-            {show && <LoginContent closeModal={closeModal} show={show} />}
+            onClick={() => openModalLogin()}> Login </Button>
+            {showLogin && <LoginContent closeModal={closeModalLogin} show={showLogin} />}
 
-        <Button className="signup" variant="contained" size="large"> Sign-Up </Button>
+        <Button className="signup" 
+            variant="contained" 
+            size="large"
+            onClick={()=> openModalSignUp()}> Sign-Up </Button>
+            {showSignUp && <SignUpContent closeModal={closeModalSignUp} show={showSignUp} />}
         </div>
         </div>
         </div>
