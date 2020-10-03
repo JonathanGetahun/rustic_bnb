@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../styling/header.css'
+import useOnClickOutside from 'use-onclickoutside'
 import SearchIcon from "@material-ui/icons/Search"
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Avatar } from "@material-ui/core"
 import { Link } from 'react-router-dom'
 import LoginContent from './Modal_Parts/Login_Container'
 import SignUpContent from './Modal_Parts/SignUp_Container'
+
+
+
 
 function Header() {
     //so that it doesn't show up in the front page, checks the url
@@ -15,16 +19,26 @@ function Header() {
 
     const [showLogin, setLogin ] = useState(false);
     const openModalLogin = () => setLogin(true);
-    const closeModalLogin = () => setLogin(false);
 
-    const [showSignUp, setShow ] = useState(false);
-    const openModalSignUp = () => setShow(true);
-    const closeModalSignUp = () => setShow(false);
+
+    const [showSignUp, setSignUp] = useState(false);
+    const openModalSignUp = () => setSignUp(true);
+
+
+
+    const handleClickOutside = (e) => {
+        console.log('global click')
+        setDrop(false)
+      }
+
+    useEffect(()=> {
+        window.addEventListener('dblclick', handleClickOutside)
+    }, [drop])
 
     if(window.location.pathname==='/') return null;
     return (
         <div>
-        <div className='header'>
+        <div className='header' >
             <Link to='/home'>
             <img className="header_icon"
             src={require("../styling/logo.png")}
@@ -38,15 +52,16 @@ function Header() {
             </div>
 
             <div className='header_right'>
-            <div  className={drop ? "header_dropdown" : "hide"}>
+            <div  onBlur={handleDropdown} className={drop ? "header_dropdown" : "hide"}>
                 <ul>
                     <li onClick={() => openModalLogin()}> Log In </li>
                     <hr />
                     <li onClick={() => openModalSignUp}> Sign Up </li>
                 </ul>
                 </div>
-                {showSignUp && <SignUpContent closeModal={closeModalSignUp} show={showSignUp} />}
-                {showLogin && <LoginContent closeModal={closeModalLogin} show={showLogin} />}
+                <LoginContent open={showLogin} setLogin={setLogin} setSignUp={setSignUp} />
+                <SignUpContent open={showSignUp} setSignUp={setSignUp} setLogin={setLogin} />
+                
                 <Avatar />
                 <ExpandMoreIcon className="header_expand" onClick={handleDropdown}/>    
             </div>

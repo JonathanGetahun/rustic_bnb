@@ -1,3 +1,12 @@
+.login_title {
+    background-color: green;
+}
+
+
+
+
+/* 
+Kept for notes
 .login{
     margin: 1rem auto;
     max-width: 1000px;
@@ -6,11 +15,11 @@
     
     .show {
     display: block;
-    }
+    } */
     
     /*unlike visibility:hidden which would still 
     stake up the space, this removes the modal*/
-    .hide {
+    /* .hide {
     display: none;
     }
     
@@ -84,7 +93,7 @@
       
       .login_button:hover {
         cursor: pointer;
-        color: #4CAF50; /* Green */
+        color: #4CAF50; 
         background-color: white;
       }
 
@@ -110,4 +119,4 @@
           background: none;
           border:none;
           color:rgb(76, 76, 204);
-      }
+      } */

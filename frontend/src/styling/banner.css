@@ -3,7 +3,7 @@
     height: 55vh;
     /* relative because we will have things inside of it in different positions */
     position: relative;
-
+    width: 100vw;
     background: url(cabin.jpg)
 }
 
