@@ -19,8 +19,12 @@
   },
   "homepage": "https://github.com/JonathanGetahun/rustic_bnb#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.10.7",
+    "mongoose": "^5.10.8",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.4"
   }
 }

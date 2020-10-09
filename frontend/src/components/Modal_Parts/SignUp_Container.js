@@ -20,6 +20,16 @@ import { Button,
   Grid,
   Link } from '@material-ui/core';
 
+  import * as yup from 'yup'
+  import { Formik, Form } from 'formik'
+
+  let SignUpSchema = yup.object().shape({
+    firstName: yup.string().required("This field is required"),
+    lastName: yup.string().required("This field is required"),
+    email: yup.string().email().required("This field is required"),
+    password: yup.string().required("This field is required").min(6, "Password needs to be at least 6 characters")
+  })
+
   const useStyles = makeStyles((theme) => ({
     paper: {
       display: 'flex',
@@ -66,7 +76,20 @@ function SignUpContent(props) {
       <Typography component="h1" variant="h5">
         Sign up
       </Typography>
-      <form className={classes.form} noValidate>
+      <Formik
+            initialValues={{
+              firstName:'',
+              lastName: '',
+              email:'',
+              password:''
+            }}
+            validationSchema={SignUpSchema}
+            onSubmit={values => {
+              console.log(values);
+            }}
+            >
+              {({errors, handleChange, touched}) => (
+      <Form className={classes.form} noValidate>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
             <TextField
@@ -78,6 +101,10 @@ function SignUpContent(props) {
               id="firstName"
               label="First Name"
               autoFocus
+              onChange={handleChange}
+              error={errors.firstName && touched.firstName}
+              helperText={errors.firstName && touched.firstName ? errors.firstName: null}
+
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -89,6 +116,9 @@ function SignUpContent(props) {
               label="Last Name"
               name="lastName"
               autoComplete="lname"
+              onChange={handleChange}
+              error={errors.lastName && touched.lastName}
+              helperText={errors.lastName && touched.lastName ? errors.lastName: null}
             />
           </Grid>
           <Grid item xs={12}>
@@ -100,6 +130,9 @@ function SignUpContent(props) {
               label="Email Address"
               name="email"
               autoComplete="email"
+              onChange={handleChange}
+              error={errors.email && touched.email}
+              helperText={errors.email && touched.email ? errors.email : null}
             />
           </Grid>
           <Grid item xs={12}>
@@ -112,6 +145,9 @@ function SignUpContent(props) {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={handleChange}
+              error={errors.password && touched.password}
+              helperText={errors.password && touched.password ? errors.password : null}
             />
           </Grid>
  
@@ -127,12 +163,16 @@ function SignUpContent(props) {
         </Button>
         <Grid container justify="flex-end">
           <Grid item>
+            <div className="switchLink">
             <Link onClick={switchLogin}>
               Already have an account? Sign in
             </Link>
+            </div>
           </Grid>
         </Grid>
-      </form>
+      </Form>
+    )}
+    </Formik>
     </div>
   </Container>
   </Dialog>)

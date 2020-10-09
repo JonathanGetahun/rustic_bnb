@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './loginContent.css';
 import SignUpContent from './SignUp_Container';
+
 import { Button, 
   TextField, 
   Dialog, 
@@ -20,6 +21,14 @@ import { Button,
   Checkbox,
   Grid,
   Link } from '@material-ui/core';
+
+  import * as yup from 'yup'
+  import { Formik, Form } from 'formik'
+
+  let LoginSchema = yup.object().shape({
+    email: yup.string().email().required("This field is required"),
+    password: yup.string().min(6, "Password needs to be at least 6 characters").required("This field is required")
+  })
 
   const useStyles = makeStyles((theme) => ({
     paper: {
@@ -48,6 +57,8 @@ import { Button,
     }
   }));
 
+
+
 function LoginContent(props) {
 
   const { open, setLogin, setSignUp } = props;
@@ -71,7 +82,18 @@ function LoginContent(props) {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <Formik
+            initialValues={{
+              email:'',
+              password:''
+            }}
+            validationSchema={LoginSchema}
+            onSubmit={values => {
+              console.log(values);
+            }}
+            >
+              {({errors, handleChange, touched}) => (
+        <Form className={classes.form}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -81,7 +103,10 @@ function LoginContent(props) {
             label="Email Address"
             name="email"
             autoComplete="email"
-            autoFocus
+            onChange={handleChange}
+            autofocus
+            error={errors.email && touched.email}
+            helperText={errors.email && touched.email ? errors.email : null}
           />
           <TextField
             variant="outlined"
@@ -93,6 +118,10 @@ function LoginContent(props) {
             type="password"
             id="password"
             autoComplete="current-password"
+            autofocus
+            onChange={handleChange}
+            error={errors.password && touched.password}
+            helperText={errors.password && touched.password ? errors.password : null}
           />
 
           <Button
@@ -118,17 +147,25 @@ function LoginContent(props) {
             <Grid item xs>
             </Grid>
             <Grid item>
-              <Link onClick={switchSignup}>
-                {"Don't have an account? Sign Up"}
-              </Link>
+              <div className="switchLink">
+                <Link onClick={switchSignup}>
+                  {"Don't have an account? Sign Up"}
+                </Link>
+              </div>
             </Grid>
           </Grid>
           </Box>
-        </form>
+        </Form>
+              )}
+      </Formik>
       </div>
     </Container>
     </Dialog>
   );
+}
+
+
+export default LoginContent
 
     // const [ open, setOpen ] = useState(false)
     // const { show, closeModal } = props;
@@ -175,6 +212,3 @@ function LoginContent(props) {
     //     </div>
     //   </>, document.getElementById("modal-root")
     // );
-}
-
-export default LoginContent

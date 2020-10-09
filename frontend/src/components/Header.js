@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import '../styling/header.css'
-import useOnClickOutside from 'use-onclickoutside'
 import SearchIcon from "@material-ui/icons/Search"
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Avatar } from "@material-ui/core"
@@ -31,6 +30,7 @@ function Header() {
         setDrop(false)
       }
 
+      //come back and remove dblclick and figure out how to use one click
     useEffect(()=> {
         window.addEventListener('dblclick', handleClickOutside)
     }, [drop])
