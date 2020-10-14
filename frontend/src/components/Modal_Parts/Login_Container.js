@@ -24,6 +24,7 @@ import { Button,
 
   import * as yup from 'yup'
   import { Formik, Form } from 'formik'
+  import { loginUser } from '../../services/userServices'
 
   let LoginSchema = yup.object().shape({
     email: yup.string().email().required("This field is required"),
@@ -88,8 +89,19 @@ function LoginContent(props) {
               password:''
             }}
             validationSchema={LoginSchema}
-            onSubmit={values => {
-              console.log(values);
+            onSubmit={async (values) => {
+            try{
+              const logUser = await loginUser({
+                ...values
+              })
+              console.log(logUser)
+              window.localStorage.setItem(
+                'loggedUser', JSON.stringify(logUser)
+              )
+            }catch(e){
+              console.error(e.message)
+            }
+
             }}
             >
               {({errors, handleChange, touched}) => (
@@ -104,7 +116,7 @@ function LoginContent(props) {
             name="email"
             autoComplete="email"
             onChange={handleChange}
-            autofocus
+            autoFocus
             error={errors.email && touched.email}
             helperText={errors.email && touched.email ? errors.email : null}
           />
@@ -118,7 +130,7 @@ function LoginContent(props) {
             type="password"
             id="password"
             autoComplete="current-password"
-            autofocus
+            autoFocus
             onChange={handleChange}
             error={errors.password && touched.password}
             helperText={errors.password && touched.password ? errors.password : null}

@@ -22,6 +22,7 @@ import { Button,
 
   import * as yup from 'yup'
   import { Formik, Form } from 'formik'
+  import { signUpUser } from '../../services/userServices'
 
   let SignUpSchema = yup.object().shape({
     firstName: yup.string().required("This field is required"),
@@ -84,8 +85,15 @@ function SignUpContent(props) {
               password:''
             }}
             validationSchema={SignUpSchema}
-            onSubmit={values => {
-              console.log(values);
+            onSubmit={async(values) => {
+              try {
+                const newUser = await signUpUser({
+                  ...values
+                });
+                
+              } catch (e) {
+                console.error(e.message)
+              }
             }}
             >
               {({errors, handleChange, touched}) => (
