@@ -18,7 +18,6 @@ function SearchResults({
             <FavoriteBorderIcon className="searchResults_heart" />
             <div className='searchResult_info'>
                 <div className="searchResult_infoTop">
-                    <p>{location}</p>
                     <h3>{title}</h3>
                     <p>_____</p>
                     <p>{description}</p>
@@ -30,8 +29,7 @@ function SearchResults({
                         <p><strong>{star}</strong></p>
                     </div>
                     <div className="searchResults_price">
-                        <h2>{price}</h2>
-                        <p>{total}</p>
+                        <p><strong>{price}</strong></p>
                     </div>
                 </div>
             </div>

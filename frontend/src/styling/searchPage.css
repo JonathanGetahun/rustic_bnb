@@ -1,5 +1,7 @@
 .searchPage_info{
     padding: 20px;
+    border-bottom: 1px dotted grey;
+
 }
 
 .searchPage_info > p {
@@ -15,4 +17,56 @@
     border-radius: 30px;
     text-transform: inherit;
     margin: 5px;
+}
+
+.searchPage {
+    display: flex;
+    grid-gap:5px;
+    width:100%;
+}
+
+.searchPage_row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.searchPage_column_listings {
+    display: inline;
+    /* flex-direction: column; */
+}
+
+.searchPage_column_map {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width:100%;
+    height:100%;
+    position: sticky !important;
+}
+
+.searchPage_listings {
+    /* width:60vw; */
+    list-style: none;
+    width:930px;
+    margin: 0px 0px;
+    padding: 0px 0px 0px 0px;
+    height:850px;
+    overflow: auto;
+}
+
+.searchPage_item {
+    padding: 20px 0px;
+    border-bottom: 1px solid #ebebeb;
+    display: flex;
+    margin-right: 20px;
+    height:850px;
+}
+
+.searchPage_map {
+    max-height: 100vh;
+    max-width:90vw;
+    /* display:flex; */
+    
 }

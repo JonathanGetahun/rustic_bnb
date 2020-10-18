@@ -4,10 +4,13 @@ and stick to the dimensions of the container*/
 .searchResult {
     display: flex;
     position: relative;
-    margin: 20px;
-    padding: 20px;
+    /* padding: 10px;
+    padding-right:40px;
+    margin:10px; */
+    margin-left:10px;
     border-bottom: 1px solid lightgray;
     cursor: pointer;
+    width:910px;
   }
 
 .searchResult:hover {
@@ -15,62 +18,87 @@ and stick to the dimensions of the container*/
 }
 
 .searchResult > img {
-    height: 200px;
-    width: 350px;
+
+    height: 240px;
+    width: 300px;
     border-radius: 10px;
-    overflow: hidden;
+    margin-left: 12px;
+    margin-bottom:20px;
+    margin-top:20px;
 }
 
 .searchResult_info {
+    display:absolute;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     padding-left: 20px;
+    width:930px;
 }
 
-.searchResult_heart {
+.searchResults_heart {
     position: absolute;
     top: 20px;
-    right: 30px;
+    right: 20px;
 }
 
 .searchResult_infoTop {
+    position:relative;
     width: 40vw;
+    width:500px;
+    /* margin-top:-60px; */
 }
 
 .searchResult_infoTop > h3 {
     font-weight: 300;
-    margin-top: 10px;
+    position:absolute;
+    /* margin-top:25px; */
 }
 
 .searchResult_infoTop > p {
-    margin-top: 10px;
+    /* margin-top: 41px; */
+    margin-top:35px;
     font-size: 13px;
+    font-weight:500;
     color: gray;
+    text-align:justify;
   }
   
 .searchResult_infoBottom {
+    /* margin-bottom:-50px; */
+    margin-top:50px;
     display: flex;
+    /* position:relative; */
     justify-content: space-between;
 }
 
 
 .searchResult_star {
     color: red;
+    overflow: auto;
 }
 
 
 .searchResult_stars {
     display: flex;
     align-items: center;
+    font-size: 18px;
+    bottom:30px;
+
 }
 
 .searchResults_price > p {
+    position:absolute;
     text-align: right;
+    right:20px;
   }
 
 .searchResults_price {
-    position: absolute;
-    bottom: 20px;
-    right: 30px;
+    /* position: absolute; */
+    /* bottom: 20px;
+    right: 30px; */
+    right:95px;
+    font-size: 18px;
+    /* white-space:nowrap; */
+    overflow:auto;
 }

@@ -21,4 +21,12 @@ const signUpUser = async ( userData ) => {
     }
 }
 
-export { loginUser, signUpUser }
+const getCurrentUser = () => {
+    return JSON.parse(window.localStorage.getItem('loggedUser'))
+}
+
+const logout = () => {
+    window.localStorage.removeItem('loggedUser')
+}
+
+export { loginUser, signUpUser, getCurrentUser, logout }

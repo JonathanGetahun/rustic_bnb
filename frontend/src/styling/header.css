@@ -2,11 +2,12 @@
     display: flex;
     justify-content: space-between ;
     align-items: center;
-    position: sticky;
+    position: sticky !important;
     top: 0;
     background-color: white;
     z-index:100;
     width:100%;
+    border-bottom: 1px solid lightgrey;
 }
 
 .header_icon{
@@ -25,7 +26,7 @@
     height: 30px;
     border-radius: 999px;
     border: 1px solid lightgray;
-    margin-left:70px;
+    /* margin-left:70px; */
 }
 
 /* this takes the border off of the original input that comes with the text box
@@ -42,7 +43,7 @@ input is a child of .header_center div */
     display: flex;
     align-items:center;
     justify-content:center;
-    width: 15vw;
+    width: 10vw;
     
 }
 
@@ -50,7 +51,9 @@ input is a child of .header_center div */
     cursor: pointer;
 }
 
-.header_dropdown {
+
+/*dont need*/
+/* .header_dropdown {
     border-radius:4px;
     border-width:2px;
     background-color: white;
@@ -60,13 +63,13 @@ input is a child of .header_center div */
     position: absolute;
     margin-top:160px;
     border-style:groove;
-}
+} */
 
 .hide {
     display: none;
 }
 
-.header_dropdown > ul > li{
+/* .header_dropdown > ul > li{
     
     margin-top:-5px;
     list-style-type: none;
@@ -75,8 +78,8 @@ input is a child of .header_center div */
     padding: 5px;
     font-size: 17px;
     cursor: pointer;
-}
+} */
 
-.header_dropdown > ul > li:hover{
+/* .header_dropdown > ul > li:hover{
     color: green;
-}
+} */

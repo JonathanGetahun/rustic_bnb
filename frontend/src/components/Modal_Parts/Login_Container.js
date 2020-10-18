@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './loginContent.css';
 import SignUpContent from './SignUp_Container';
+import { useHistory } from 'react-router-dom'
 
 import { Button, 
   TextField, 
@@ -64,6 +65,8 @@ function LoginContent(props) {
 
   const { open, setLogin, setSignUp } = props;
 
+  const history = useHistory();
+
   const switchSignup = (event) => {
     setLogin(false)
     setSignUp(true)
@@ -74,6 +77,7 @@ function LoginContent(props) {
   return (
     //Seems like it handles a lot of things in the background like closing the 
     //overlay container and opening a new one.
+    //---> uses open state built in to control whether it renders or not from other modules
     <Dialog className="login" aria-labelledby="simple-dialog-title" open={open} onClose={(event) => {setLogin(false)}}>
       
       <DialogTitle className={classes.title} onClick={() => setLogin(false)}>X</DialogTitle>
@@ -98,6 +102,9 @@ function LoginContent(props) {
               window.localStorage.setItem(
                 'loggedUser', JSON.stringify(logUser)
               )
+              setLogin(false)
+              // history.push('/home')
+              history.go(0)
             }catch(e){
               console.error(e.message)
             }
