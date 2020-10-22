@@ -5,8 +5,9 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors')
 const morgan = require('morgan')
-const signupRouter = require('./controllers/signup')
-const loginRouter = require('./controllers/login')
+const signupRouter = require('./controllers/signupRouter')
+const loginRouter = require('./controllers/loginRouter')
+const s3Router = require('./controllers/s3Router')
 
 const MONGO_URI = process.env.MONGODB_URI
 mongoose.connect(MONGO_URI
@@ -19,6 +20,7 @@ if(app.get('env') === 'development'){
 }
 app.use('/', signupRouter)
 app.use('/login', loginRouter)
+app.use('/search/list', s3Router)
 
 
 module.exports = app

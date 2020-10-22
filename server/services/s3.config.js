@@ -1,19 +1,26 @@
 const aws = require('aws-sdk');
+require('dotenv').config();
 
+(async function(){
+    try{
+        aws.config.setPromisesDependency() //use so you can promisify to get the actual images
+        aws.config.update({
+            accessKeyId: process.env.ACCESSKEYID,
+            secretAccessKey: process.env.SECRETACCESSKEY,
+            region: 'us-east-1'
+        });
 
-const s3Client = new aws.S3({
-    secretAccessKey:process.env.SECRETACCESSKEY,
-    accessKeyId:process.env.ACCESSKEYID,
-    region:'us-east-2'
-})
+        const s3 = new aws.S3();
+        const response = await s3.listObjectsV2({
+            Bucket: 'rustic-bnb-images'
+        }).promise()
 
-const downloadParams = {
-    Bucket: 'rustic-bnb-images', 
-    Key:''
-}
+        console.log(response)
 
-const s3 = {}
-s3.s3Client = s3Client;
-s3.downloadParams = downloadParams;
+    } catch(e) {
+        console.log('our error is',e)
+    }
+    
+});
 
 module.exports = s3;
