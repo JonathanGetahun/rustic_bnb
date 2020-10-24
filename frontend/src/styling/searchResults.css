@@ -13,8 +13,9 @@ and stick to the dimensions of the container*/
     width:910px;
   }
 
+/*opacity of image*/
 .searchResult:hover {
-    opacity: 0.8;
+    opacity: .9;
 }
 
 .searchResult > img {

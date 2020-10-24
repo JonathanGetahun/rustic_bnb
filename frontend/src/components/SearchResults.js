@@ -2,6 +2,7 @@ import React from 'react'
 import '../styling/searchResults.css'
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
 import StarIcon from "@material-ui/icons/Star"
+import Slider from './Slider'
 
 function SearchResults({
     img, 
@@ -14,7 +15,8 @@ function SearchResults({
 }) {
     return (
         <div className="searchResult">
-            <img src={img} alt="" />
+            {/* <img src={img} alt="" /> */}
+            <Slider img={img}/>
             <FavoriteBorderIcon className="searchResults_heart" />
             <div className='searchResult_info'>
                 <div className="searchResult_infoTop">

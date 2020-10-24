@@ -5,4 +5,9 @@ const listLocations = () => {
     return response
 }
 
- export { listLocations }
+const listLocation =  () => {
+    const response =  axios.get('/list')
+    return response
+}
+
+ export { listLocations, listLocation }

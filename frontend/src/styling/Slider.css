@@ -1,0 +1,31 @@
+ .Slider-Container {
+    position: relative;
+    cursor: crosshair;
+    height: 240px;
+    width:440px;
+}
+/*
+.Slider-prev {
+    position: absolute;
+    width:90px;
+    top:50%;
+    border: 0px;
+    background: rgba(0,0,0,0.4);
+    color: white;
+    padding: 20px;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.Slider-next {
+    position: absolute;
+    width:90px;
+    top:50%;
+    right:0;
+    border: 0px;
+    background: rgba(0,0,0,0.4);
+    color: white;
+    padding: 20px;
+    opacity: 1;
+    cursor: pointer;
+} */

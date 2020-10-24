@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styling/searchPage.css'
 import { Button } from '@material-ui/core'
-import Listings from './listings'
+import Listings from './Listings'
 import {
     withScriptjs,
     withGoogleMap,
