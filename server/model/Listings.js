@@ -9,7 +9,7 @@ const listingsSchema = new mongoose.Schema({
     amenities: {
         type:Array
     }, 
-    locationTag:[Number],
+    locationTag:{Number},
     price: Number,
     rating: Number,
     favorited: Boolean,

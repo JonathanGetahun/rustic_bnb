@@ -1,13 +1,7 @@
 import React, { useState } from 'react'
 import '../styling/start.css'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import { Button, 
-    TextField, 
-    Dialog, 
-    DialogActions, 
-    DialogContent,
-    DialogContentText,
-    DialogTitle } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 import LoginContent from './Modal_Parts/Login_Container'
 import SignUpContent from './Modal_Parts/SignUp_Container'

@@ -1,44 +1,56 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import SearchResults from './SearchResults'
-import { listLocation } from '../services/listingServices'
 import '../styling/searchResults.css'
 import '../styling/searchPage.css'
+import { ShowList } from '../context/ShowList'
+import { ToggleList } from '../context/ToggleList'
 
 
 
 
-function Listings() {
+ function Listings() {
 
-    const [url, changeURL ] = useState([]);
+    // const [url, changeURL ] = useState([]);
     
-    let listed; 
-    let final;
+    // let listed; 
+    
 
-    useEffect(() => {
-        async function fetchData(){
-            listed = await listLocation().then(data => data.data)
+    // useEffect(() => {
+    //     async function fetchData(){
+    //         listed = await listLocation().then(data => data.data)
             
-            changeURL(url.concat(listed))
-        }
-        fetchData()
+    //         changeURL(url.concat(listed))
+    //     }
+    //     fetchData()
         
-    }, [])
+    // }, [])
 
-    console.log(url)
+    // console.log("this",listOfListings)
 
-    const placeList = url.map((data,i) => {
+    const { list } = useContext(ShowList)
+    const { toggleList } = useContext(ToggleList)
+    let placeList = [];
+    useEffect(() => {
+
+        async function workDisplay(){
+            placeList.concat(await list.map((data,i) => {
        
-        return <SearchResults
-                   key={i}
-                   img={data.images}
-                   location="Private room in center of London"
-                   title="Stay at this spacious Edwardian House"
-                   description="1 guest · 1 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Kitchen ·  Washing Machine"
-                   star={4.73}
-                   price="£30 / night"
-                   total="£117 total"
-               />
-    })
+                return <SearchResults
+                           key={i}
+                           img={data.images}
+                           location="Private room in center of London"
+                           title={data.locationName}
+                           description={data.amenities}
+                           star={data.Rating}
+                           price={`$${data.Price}`}
+                           show={toggleList[i]}
+                       />
+            }))
+        }
+        workDisplay()
+    }, [toggleList])
+
+
 
     return (
         <div>

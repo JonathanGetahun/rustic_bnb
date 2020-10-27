@@ -1,25 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import './loginContent.css';
-import SignUpContent from './SignUp_Container';
 import { useHistory } from 'react-router-dom'
 
 import { Button, 
   TextField, 
   Dialog, 
-  DialogActions, 
-  DialogContent,
-  DialogContentText,
   DialogTitle,
   makeStyles,
   Box,
-  CloseIcon,
   Container,
   CssBaseline,
-  LockOutlineIcon,
   Typography,
-  FormControlLabel,
-  Checkbox,
   Grid,
   Link } from '@material-ui/core';
 

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import '../styling/header.css'
 import SearchIcon from "@material-ui/icons/Search"
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import IconButton from '@material-ui/core/IconButton'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -10,7 +9,7 @@ import { Link } from 'react-router-dom'
 import LoginContent from './Modal_Parts/Login_Container'
 import SignUpContent from './Modal_Parts/SignUp_Container'
 import { getCurrentUser, logout } from '../services/userServices'
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 
 
 
@@ -18,7 +17,7 @@ import { useHistory } from 'react-router-dom'
 
 function Header() {
 
-    const history = useHistory()
+    // const history = useHistory()
 
     //hooks for the dropdown conditionals 
     const [anchorEl, setAnchorEl] = useState(null)

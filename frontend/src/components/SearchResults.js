@@ -11,10 +11,14 @@ function SearchResults({
     description,
     star,
     price, 
-    total
+    total,
+    show
 }) {
+console.log("display:", show)
+   
     return (
-        <div className="searchResult">
+      
+         <div className="searchResult" style={{ display: (show ? 'flex' : 'none') }} >
             {/* <img src={img} alt="" /> */}
             <Slider img={img}/>
             <FavoriteBorderIcon className="searchResults_heart" />
@@ -22,7 +26,8 @@ function SearchResults({
                 <div className="searchResult_infoTop">
                     <h3>{title}</h3>
                     <p>_____</p>
-                    <p>{description}</p>
+                    <p>wherever I say Broooo</p>
+                    <p>{`${description[0]} · ${description[1]} · ${description[2]} · ${description[3]}`}</p>
                 </div>
 
                 <div className="searchResult_infoBottom">
@@ -36,8 +41,8 @@ function SearchResults({
                 </div>
             </div>
 
-        </div>
-    )
+        </div> 
+    ) 
 }
 
 export default SearchResults

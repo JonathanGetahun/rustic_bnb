@@ -7,7 +7,8 @@
     background-color: white;
     z-index:100;
     width:100%;
-    border-bottom: 1px solid lightgrey;
+    /* border-bottom: 1px solid lightgrey; */
+    box-shadow: 0 8px 6px -6px rgba(0,0,0,0.4);
 }
 
 .header_icon{

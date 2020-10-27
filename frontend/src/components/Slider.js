@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { listLocations, listLocation } from '../services/listingServices'
+import { listLocation } from '../services/listingServices'
 import '../styling/Slider.css'
 import Carousel from 'nuka-carousel'
 
@@ -39,11 +39,11 @@ function Slider( {img}) {
 
         {/*has pagination when scrolling through at the bottom*/}
             <Carousel>
-                <img src={img[0]} height="250" width="440"/>
-                <img src={img[1]} height="250" width="440"/>
-                <img src={img[2]} height="250" width="440"/>
-                <img src={img[3]} height="250" width="440"/>
-                <img src={img[4]} height="250" width="440"/>
+                <img src={img[0]} height="250" width="440" alt='1'/>
+                <img src={img[1]} height="250" width="440" alt='1'/>
+                <img src={img[2]} height="250" width="440" alt='1'/>
+                <img src={img[3]} height="250" width="440" alt='1'/>
+                <img src={img[4]} height="250" width="440" alt='1'/>
             </Carousel>
         </div>
     )

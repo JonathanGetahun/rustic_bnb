@@ -1,22 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+
 import './signUpContent.css';
 import { Button, 
   TextField, 
   Dialog, 
-  DialogActions, 
-  DialogContent,
-  DialogContentText,
   DialogTitle,
   makeStyles,
-  Box,
-  CloseIcon,
   Container,
   CssBaseline,
-  LockOutlineIcon,
   Typography,
-  FormControlLabel,
-  Checkbox,
   Grid,
   Link } from '@material-ui/core';
 
@@ -87,7 +79,7 @@ function SignUpContent(props) {
             validationSchema={SignUpSchema}
             onSubmit={async(values) => {
               try {
-                const newUser = await signUpUser({
+                 await signUpUser({
                   ...values
                 });
                 
