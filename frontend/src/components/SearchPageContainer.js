@@ -5,12 +5,14 @@ import { withRouter } from 'react-router-dom';
 
 
 const msp = state => {
-    return { 
-        list: Object.values(state.list),
+    
+    return {
+        list: state.list,
     }
 }
 
 const mdp = dispatch => {
+    
     return { 
         fetchListings: () => dispatch(fetchListings())
     }

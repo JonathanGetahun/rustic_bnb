@@ -1,19 +1,18 @@
 import React from 'react';
 import '../styling/App.css';
-import { Provider } from 'react-redux'
-import store from '../reduxStore'
+
 
 import Home from './Home'
 import Header from './Header'
 import Footer from './Footer'
-import SearchPageContainer from './SearchPageContainer'
+import SearchPage from './SearchPage'
 import Start from './Start'
 import Example from './example'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
   return (
-  <Provider store={store}>
+  
     
     <div className="App">
 
@@ -24,7 +23,7 @@ function App() {
           <Example />
         </Route>
          <Route path="/search">
-          <SearchPageContainer />
+          <SearchPage />
          </Route>
          
          <Route path ="/home">
@@ -38,7 +37,7 @@ function App() {
       <Footer />
     </Router>
     </div>
-    </Provider>
+   
   )
 }
 

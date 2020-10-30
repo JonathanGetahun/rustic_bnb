@@ -14,11 +14,12 @@ function SearchResults({
     total,
     show
 }) {
-console.log("display:", show)
+// console.log("display:", show)
    
     return (
       
-         <div className="searchResult" style={{ display: (show ? 'flex' : 'none') }} >
+        //  <div className="searchResult" style={{ display: (show ? 'flex' : 'none') }} >
+        <div className="searchResult" >
             {/* <img src={img} alt="" /> */}
             <Slider img={img}/>
             <FavoriteBorderIcon className="searchResults_heart" />

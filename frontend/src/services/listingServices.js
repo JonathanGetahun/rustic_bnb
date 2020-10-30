@@ -1,14 +1,15 @@
 import axios from 'axios'
 
-const listLocations = () => {
-    const response = axios.get('/search/list')
+const refreshLocation = () => {
+    const response = axios.get('/home')
     return response
 }
 
 //this one for the actual list
-const listLocation =  () => {
-    const response =  axios.get('/list')
+const listLocation = async () => {
+    const response = await axios.get('/search')
+    //try response.data next time
     return response
 }
 
- export { listLocations, listLocation }
+ export { refreshLocation, listLocation }

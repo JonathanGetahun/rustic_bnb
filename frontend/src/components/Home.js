@@ -2,9 +2,11 @@ import React from 'react'
 import '../styling/home.css'
 import Card from './Card'
 import Banner from './Banner'
+import { refreshLocation } from '../services/listingServices'
 
 
 function Home() {
+    refreshLocation()
     return (
         <div className="home">
             <Banner /> 

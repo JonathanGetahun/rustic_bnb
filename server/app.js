@@ -22,7 +22,7 @@ if(app.get('env') === 'development'){
 app.use('/', signupRouter)
 app.use('/login', loginRouter)
 app.use('/home', s3Router)
-app.use('/list', listRouter)
+app.use('/search', listRouter)
 
 
 module.exports = app

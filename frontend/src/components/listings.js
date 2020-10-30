@@ -2,11 +2,9 @@ import React, { useContext, useEffect } from 'react'
 import SearchResults from './SearchResults'
 import '../styling/searchResults.css'
 import '../styling/searchPage.css'
-import { ShowList } from '../context/ShowList'
-import { ToggleList } from '../context/ToggleList'
 
-import { connect } from 'react-redux'
 import { fetchListings } from '../actions/listing_actions'
+import { useDispatch, useSelector } from 'react-redux'
 
 
   function Listings(props) {
@@ -31,16 +29,22 @@ import { fetchListings } from '../actions/listing_actions'
     // const { list } = useContext(ShowList)
     // const { toggleList } = useContext(ToggleList)
     
+const dispatch = useDispatch()
 
     
+   
+    useEffect(() => {
+        dispatch(fetchListings())
+    }, [])
     
-    
+    let placeList;
+   const list = useSelector(state => state.list)
 
-
-   console.log(fetchListings)
-    console.log("props:",props)
-    if(!props.list) return <div>loading..</div>
-    const placeList = props.list.map((data,i) => {
+   console.log(list)
+    console.log("props:",list)
+    if(!list) return <div>loading..</div> 
+    else {
+     placeList = list.map((data,i) => {
 
         return <SearchResults
                    key={i}
@@ -50,10 +54,10 @@ import { fetchListings } from '../actions/listing_actions'
                    description={data.amenities}
                    star={data.Rating}
                    price={`$${data.Price}`}
-                //    show={toggleList[i]}
+                //    show={data.display}
                />
     })
-
+}
 
         
 
@@ -64,7 +68,7 @@ import { fetchListings } from '../actions/listing_actions'
 
     return (
         <div>
-            {placeList}
+            { placeList ? placeList : `Comeback later`}
         </div>
     )
 }
