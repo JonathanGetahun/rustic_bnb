@@ -9,7 +9,7 @@ import ShowListProvider from '../context/ShowList'
 import ToggleListProvider from '../context/ToggleList'
 
 
-function SearchPage() {
+function SearchPage({ list, fetchListings}) {
 
 
     return (
@@ -28,7 +28,7 @@ function SearchPage() {
                 
                 <ul className='searchPage_listings'>
                     <li className='searchPage_item'>
-                        <Listings />
+                        <Listings list={list} fetchListings={fetchListings}/>
                     </li>
                 </ul>
                 </div>

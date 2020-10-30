@@ -5,10 +5,11 @@ import '../styling/searchPage.css'
 import { ShowList } from '../context/ShowList'
 import { ToggleList } from '../context/ToggleList'
 
+import { connect } from 'react-redux'
+import { fetchListings } from '../actions/listing_actions'
 
 
-
- function Listings() {
+  function Listings(props) {
 
     // const [url, changeURL ] = useState([]);
     
@@ -27,28 +28,37 @@ import { ToggleList } from '../context/ToggleList'
 
     // console.log("this",listOfListings)
 
-    const { list } = useContext(ShowList)
-    const { toggleList } = useContext(ToggleList)
-    let placeList = [];
-    useEffect(() => {
+    // const { list } = useContext(ShowList)
+    // const { toggleList } = useContext(ToggleList)
+    
 
-        async function workDisplay(){
-            placeList.concat(await list.map((data,i) => {
-       
-                return <SearchResults
-                           key={i}
-                           img={data.images}
-                           location="Private room in center of London"
-                           title={data.locationName}
-                           description={data.amenities}
-                           star={data.Rating}
-                           price={`$${data.Price}`}
-                           show={toggleList[i]}
-                       />
-            }))
-        }
-        workDisplay()
-    }, [toggleList])
+    
+    
+    
+
+
+   console.log(fetchListings)
+    console.log("props:",props)
+    if(!props.list) return <div>loading..</div>
+    const placeList = props.list.map((data,i) => {
+
+        return <SearchResults
+                   key={i}
+                   img={data.images}
+                   location="Private room in center of London"
+                   title={data.locationName}
+                   description={data.amenities}
+                   star={data.Rating}
+                   price={`$${data.Price}`}
+                //    show={toggleList[i]}
+               />
+    })
+
+
+        
+
+        
+
 
 
 
@@ -58,5 +68,7 @@ import { ToggleList } from '../context/ToggleList'
         </div>
     )
 }
+
+
 
 export default Listings

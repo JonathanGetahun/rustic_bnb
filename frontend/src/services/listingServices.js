@@ -5,6 +5,7 @@ const listLocations = () => {
     return response
 }
 
+//this one for the actual list
 const listLocation =  () => {
     const response =  axios.get('/list')
     return response
