@@ -13,17 +13,8 @@ import {useSelector} from 'react-redux'
 
 const SearchPage = () =>{
 
-  const list = useSelector(state => state.list)
-  let amount = 0;
 
-  
-  
-  list.forEach((listing) => {
-    console.log('amount',amount)
-    if(listing.display == true) amount++;
-    if(amount >= 0 && listing.display == false) amount--;
-    })
-  
+  const list = useSelector(state => state.list)
 
     return (
         <div className='searchPage'>
@@ -31,7 +22,7 @@ const SearchPage = () =>{
 
                 <div className='searchPage_column_listings'>
                     <div className='searchPage_info'> 
-                    <h1>{amount} Stays nearby</h1>
+                    <h1>{list.length} Stays nearby</h1>
                     <Button variant="outlined">Type of Place</Button>
                     <Button variant="outlined">Price</Button>
                     <Button variant="outlined">Rooms and Number of Beds</Button>
@@ -40,8 +31,7 @@ const SearchPage = () =>{
                 
                 <ul className='searchPage_listings'>
                     <li className='searchPage_item'>
-                        {(amount == 0) ? 'Sorry wait for updates': null}
-                        <Listings /> 
+    {list.length ==0 ? <h1> No listings in area, try adjusting your search with zoom or refreshing...</h1> : <Listings />} 
                     </li>
                 </ul>
                 </div>

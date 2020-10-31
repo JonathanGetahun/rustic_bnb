@@ -3,32 +3,49 @@ import '../styling/searchResults.css'
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
 import StarIcon from "@material-ui/icons/Star"
 import Slider from './Slider'
+import { Link } from 'react-router-dom'
 
 function SearchResults({
     img, 
-    location, 
     title,
     description,
     star,
     price, 
-    total,
-    show
+    id,
+    host,
+    location,
+    amenities
 }) {
 // console.log("display:", show)
+
    
     return (
       
         //  <div className="searchResult" style={{ display: (show ? 'flex' : 'none') }} >
+        <Link to={{pathname: `/search/${id}`, 
+            state: {
+                img: img,
+                title: title,
+                description: description,
+                star: star,
+                price: price,
+                id: id,
+                host:host,
+                location: location,
+                amenities: amenities
+            }
+        }} style={{ textDecoration: 'none', color: 'black' }}>
         <div className="searchResult" >
             {/* <img src={img} alt="" /> */}
+            
             <Slider img={img}/>
             <FavoriteBorderIcon className="searchResults_heart" />
             <div className='searchResult_info'>
                 <div className="searchResult_infoTop">
                     <h3>{title}</h3>
                     <p>_____</p>
-                    <p>wherever I say Broooo</p>
-                    <p>{`${description[0]} · ${description[1]} · ${description[2]} · ${description[3]}`}</p>
+                    <p>{location}</p>
+                    <p>{`${amenities[0]} · ${amenities[1]} · ${amenities[2]} · ${amenities[3]}`}</p>
                 </div>
 
                 <div className="searchResult_infoBottom">
@@ -43,6 +60,7 @@ function SearchResults({
             </div>
 
         </div> 
+        </Link>
     ) 
 }
 

@@ -49,11 +49,15 @@ const dispatch = useDispatch()
         return <SearchResults
                    key={i}
                    img={data.images}
-                   location="Private room in center of London"
+                   location={data.location}
                    title={data.locationName}
-                   description={data.amenities}
+                   amenities={data.amenities}
+                   description={data.description}
                    star={data.Rating}
                    price={`$${data.Price}`}
+                   id={data.id}
+                   host={data.host}
+                   amenities={data.amenities}
                 //    show={data.display}
                />
     })

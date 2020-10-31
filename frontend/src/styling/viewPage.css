@@ -1,0 +1,996 @@
+.arenas-map-container {
+    min-height: 95vh;
+    grid-gap: 5px;
+    padding: 20px 35px 0 35px;
+    display: flex;
+}
+.search-map-container {
+    max-height: 100vh;
+    width: 100%;
+    display: flex;
+    position: sticky !important;
+    top: 85px;
+}
+.arena-index-item {
+    padding: 20px 0px;
+    border-bottom: 1px solid #ebebeb;
+    display: flex;
+    margin-right: 20px;
+}
+.arena-index-item:last-child {
+    border-bottom: none;
+}
+.arenas-search-list>li {
+    max-height: 200px;
+}
+.key-list ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.key-list:not(:first-child) {
+    width: 70%;
+    padding: 10px 0 0 10px;
+}
+.key-list:first-child {
+    padding-left: 10px;
+}
+.key-list li {
+    font-size: 12px;
+    color: #717171;
+}
+.arenas-index-title-list li:last-child {
+    font-weight: bold;
+    color: #222222;
+}
+.arenas-index-arena-name {
+    font-size: 20px;
+    padding-left: 10px;
+}
+.arenas-search-list {
+    display: inline;
+}
+.arenas-search-list img {
+    border-radius: 5px;
+    height: 200px;
+    width: 300px;
+}
+.arena-index-list-container {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+.arenas-container {
+    width: 800px;
+}
+.arenas-index-list {
+    width: 100%}
+.arenas-index-title-list li i {
+    color: #f53d4e;
+}
+.arenas-index-pricing {
+    display: flex;
+    bottom: 0%;
+    right: 0%;
+    position: absolute;
+}
+.dollars {
+    font-weight: bold;
+    padding-right: 3.5px;
+}
+.arena-details-text-container {
+    display: flex;
+    width: 800px;
+    margin: 0 auto;
+    flex-direction: column;
+    margin-right: 35px;
+}
+.arena-details-name {
+    display: flex;
+    justify-content: space-between;
+}
+.arena-details-name div:first-child {
+    font-size: 32px;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+.arena-title-city p {
+    font-size: 16px;
+    padding-bottom: 25px;
+}
+.arenas-show-key-list {
+    width: 50%}
+.arenas-show-key-list ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.arenas-show-key-list li {
+    padding-bottom: 20px;
+    font-size: 16px;
+    color: #717171;
+}
+.arena-gm-descriptions {
+    padding: 20px 0;
+    border-bottom: solid 1px #ebebeb;
+    border-top: solid 1px #ebebeb;
+}
+.arena-gm-title {
+    font-weight: bold;
+    font-size: 16px;
+    padding-top: 10px;
+}
+.arena-gm-title>i {
+    padding-right: 10px;
+}
+.arena-gm-expand {
+    font-size: 14px;
+    padding-left: 27px;
+    color: #717171;
+}
+.arena-long-description-container {
+    padding: 25px 0;
+    border-bottom: solid 1px #ebebeb;
+}
+.arena-long-description-contact-host {
+    padding-top: 10px;
+}
+.amenities-container {
+    padding: 25px 0;
+    border-bottom: solid 1px #ebebeb;
+}
+.amenities-title {
+    font-weight: bold;
+}
+.amenities-container li>i {
+    padding-right: 10px;
+}
+.amenities-list-container {
+    width: 100%}
+.amenities-list-container {
+    padding-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.amenities-list-container i {
+    padding-right: 5px;
+}
+.arena-availabilities-container {
+    padding: 25px 0;
+    border-bottom: solid 1px #ebebeb;
+}
+.availabilities-title {
+    font-weight: bold;
+}
+.availabilities-description {
+    padding: 15px 0;
+}
+.arena-show-map-container {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 0;
+}
+.show-map-title {
+    font-weight: bold;
+    padding: 25px 0;
+}
+.show-map-description {
+    padding: 15px 0;
+}
+.arena-pics {
+    height: 600px;
+    width: 100%;
+    display: flex;
+    border: 1px black solid;
+}
+.arena-pics:hover div {
+    filter: brightness(75%);
+}
+.arena-main-pic {
+    height: 100%;
+    width: 50%;
+    overflow: hidden;
+}
+.arena-main-pic:hover {
+    filter: brightness(115%) !important;
+}
+.arena-main-pic img {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    transition: all .3s ease;
+    object-fit: cover;
+}
+.arena-main-pic img:hover {
+    transition: .5s height ease;
+    height: 105%;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+}
+.arena-sub-pics {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 50%}
+.arena-sub-pics:hover {
+    filter: brightness(115%) !important;
+}
+.arena-sub-pic {
+    height: 300px;
+    width: 50%;
+    overflow: hidden;
+}
+.arena-sub-pic img {
+    height: 300px;
+    width: 100%;
+    border: solid 1px #484848;
+    cursor: pointer;
+    transition: all .3s ease;
+    object-fit: cover;
+}
+.arena-sub-pic img:hover {
+    display: flex;
+    transition: .5s height ease;
+    height: 110%;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+    overflow: hidden;
+    filter: brightness(125%) !important;
+}
+.search-map-container-show {
+    max-height: 100%;
+    width: 100%}
+.arena-show-map {
+    display: flex;
+    width: 600px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+/* .gm-pic {
+    height: 50px;
+    width: 50px;
+} */
+.hoopersSelect:focus {
+    box-shadow: 0 0 0 1pt #008589;
+}
+.hoopersSelect {
+    width: 95%;
+    font-size: 16px;
+    color: #717171;
+    font-weight: lighter;
+    background: white;
+    appearance: none;
+    text-indent: 10px;
+    height: 45px;
+    border-radius: 5px;
+    border: 1px solid #dbdbdb;
+    margin-top: 10px;
+}
+.hooperChange:active {
+    transition: .3s;
+    box-shadow: 0 0 2px 2px #717171;
+}
+.hoopersUl li button {
+    margin-right: 10px;
+    font-size: 18px;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    padding: 10px;
+    border: 1px solid #008589;
+    border-radius: 50%;
+    color: #008589;
+    position: relative;
+    top: -3px;
+    line-height: 5px;
+}
+.hoopersUl li {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.hoopersUl {
+    border: 1px solid #f2f2f2;
+    margin: -17px 0 10px 0;
+    width: 95%}
+.bookingArrow {
+    font-size: 16px;
+    color: #484848;
+    font-weight: 100;
+    position: relative;
+    top: -30px;
+    right: -85%;
+    pointer-events: none;
+}
+.plusminus {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+.plusminus p {
+    text-align: center;
+    padding: 0 10px 0 5px;
+}
+.hoopersChange {
+    text-align: center;
+}
+#minusDisabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+.arena-show-container {
+    display: flex;
+    height: 100%;
+    width: 1000px;
+    margin: 0 auto;
+}
+.arenas-booking-form {
+    position: sticky;
+    height: 100%;
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    top: 105px;
+    padding-top: 20px;
+    border: solid 1px #ebebeb;
+}
+.arenas-booking-pricing {
+    display: flex;
+}
+.booking-dollars {
+    font-weight: bold;
+    padding-right: 3px;
+    font-size: 18px;
+}
+.booking-per-day {
+    font-size: 14px;
+    text-align: bottom;
+}
+.booking-rating {
+    padding-bottom: 15px;
+}
+.booking-star {
+    font-size: 12px;
+    padding-bottom: 15px;
+    border-bottom: solid 1px #ebebeb;
+    font-weight: bold;
+}
+.booking-star i {
+    color: #f53d4e;
+    padding-right: 3px;
+}
+.booking-search-label {
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    width: 100%;
+    align-items: center;
+}
+#booking-date-picker {
+    width: 100%}
+.booking-search-label {
+    width: 50%;
+    display: flex;
+    margin: 0 auto;
+}
+.booking-search-label label div:first-child {
+    width: 100%;
+    font-size: 16px;
+    padding: 5px 0px 5px 0px;
+    font-family: Montserrat !important;
+}
+.booking-search-input {
+    width: 100%;
+    font-size: 16px;
+    padding: 9px 0px 9px 0px;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+}
+.booking-reserve-button {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+.booking-reserve-button p {
+    margin: 0 auto;
+    font-size: 12px;
+    padding-top: 12px;
+}
+.reserve-button {
+    width: 100%;
+    font-size: 18px;
+    background-color: #0056a3;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+}
+.reserve-log-in {
+    background-color: #f53d4e;
+}
+.arena-title-city-pics {
+    margin-bottom: 30px;
+}
+.nobooking-index-container {
+    display: flex;
+    padding: 35px;
+    width: 80%;
+    margin: 0 auto;
+}
+.nobooking-index-test {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.beep {
+    font-size: 80px;
+    font-weight: bold;
+}
+.nobooking-text {
+    font-size: 45px;
+    width: 70%;
+    padding-top: 25px;
+}
+.nobooking-splash {
+    background-color: #ff4f5a;
+    color: white;
+    padding: 20px 35px 20px 35px;
+    font-size: 30px;
+    text-align: center;
+    display: flex;
+    margin: 0 auto;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+.booking-upcoming-container {
+    padding: 1000px;
+    padding: 35px;
+    background-size: cover;
+    width: 80%;
+    border-radius: 3px;
+    margin: 0 auto;
+}
+.booking-arena-picture img {
+    width: 300px;
+    height: 200px;
+    border-radius: 3px;
+}
+.bookings-confirmed-tile {
+    display: flex;
+    flex-direction: row;
+    padding-top: 15px;
+}
+.booking-confirmation-num {
+    font-size: 12px;
+}
+.bookings-index-item:not(:first-child) {
+    padding-left: 20px;
+}
+.booking-upcoming-title {
+    font-size: 45px;
+    font-weight: bold;
+}
+.booking-upcoming-question {
+    font-size: 25px;
+    font-weight: bold;
+}
+.bookings-index-confirm {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+.bookings-confirmed {
+    font-size: 18px;
+}
+.booking-index-time {
+    padding-bottom: 10px;
+}
+.booking-cancel-button {
+    background-color: #f93e4f;
+    color: white;
+    width: 100%;
+    font-size: 15px;
+    padding: 10px 0 10px 0;
+    border-radius: 3px;
+    text-align: center;
+}
+footer {
+    width: 100%;
+    bottom: 0;
+}
+.footer-container {
+    max-height: 30%;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    border-top: 1px gray solid;
+    border-bottom: 1px gray solid;
+    margin-top: 50px;
+}
+.footer-title {
+    border-left: 25px;
+}
+.footer-cat {
+    margin: 15px;
+}
+.footer-cat li {
+    padding: 10px;
+    text-align: left;
+    font-size: 13px;
+}
+.footer-cat li:first-child {
+    font-weight: bold;
+}
+.modal-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+}
+.modal-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,  -50%);
+    background-color: white;
+    border-radius: 10px;
+    width: 570px;
+    min-height: 450px;
+}
+.modal-form-container {
+    height: 100%;
+    padding: 25px 35px;
+}
+.modal-close-x {
+    display: flex;
+}
+.sign-up-header {
+    display: flex;
+    margin: 0 auto;
+}
+.modal-close-x div:first-child {
+    cursor: pointer;
+    padding: 5px;
+    font-stretch: expanded;
+    font-size: 20px;
+}
+.signup-form {
+    font-size: 18px;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 15px 0px 15px 10px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+.modal-container {
+    padding-bottom: 25px;
+}
+.modal-submit-button {
+    cursor: pointer;
+    font-size: 17px;
+    width: 100%;
+    background-color: #0056a3;
+    color: white;
+    height: 50px;
+    border-radius: 10px;
+}
+.session-link-text {
+    font-size: 16px;
+}
+.session-link-button {
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    color: #ca0629;
+    text-decoration: underline;
+}
+.demo-login-button button {
+    font-size: 22px;
+    width: 100%;
+    background-color: #ca0629;
+    color: white;
+    height: 50px;
+    text-align: center;
+    border-radius: 10px;
+}
+.hr-line {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin: 0 0 20px 0;
+    color: #A2A2A2;
+    font-size: 15px;
+    align-items: center;
+}
+hr {
+    width: 46%;
+    border: 0.5px solid #DDDDDD;
+}
+.session-link-text {
+    padding-top: 10px;
+}
+.firstname-container {
+    padding-bottom: 0 !important;
+}
+.firstname {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-bottom: none !important;
+}
+.lastname {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+.message {
+    font-size: 12px;
+    padding: 3px 0 0 5px;
+}
+.signup-error {
+    font-size: 12px;
+    padding: 3px 0 0 5px;
+    color: #C13515;
+}
+.rederrorclass {
+    background-color: #FFF8F6;
+    border-color: #C13515;
+    color: #C13515;
+}
+.policy {
+    font-size: 12px;
+    padding: 3px 0 3px 5px;
+}
+.sign-up-header {
+    font-size: 20px;
+}
+.login-error {
+    font-size: 12px;
+    padding: 3px 0 10px 5px;
+    color: #C13515;
+}
+.routes {
+    margin-top: 79px;
+}
+.fixed-nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 79px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    background-color: white;
+    box-shadow: 1px 1px 1px #8b8b8b;
+}
+.login-signup {
+    color: black;
+    border-radius: 21px;
+}
+.github {
+    padding: 12px 25px;
+    height: 45px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+.nav button:last-child {
+    margin-right: 85px;
+    border-radius: 21px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.18);
+}
+.nav button:last-child:hover {
+    border: 1px black;
+    box-shadow: 1px 1px 5px #666666;
+    transition: 0.3s;
+}
+.form-button {
+    font-size: 15px;
+    width: 50px;
+    height: 44px;
+    text-align: center;
+    padding: 0px 20px;
+    white-space: nowrap;
+    transition: 0.4s;
+}
+.nav :not(:last-child):hover {
+    border-radius: 20px;
+    background-color: rgba(223, 223, 223, 0.612);
+    transition: 0.3s;
+}
+.nav :not(:first-child) {
+    margin-right: 10px;
+}
+.logo img {
+    padding-left: 85px;
+    height: 35px;
+    width: auto;
+}
+.header-name {
+    margin-right: 85px;
+    border-radius: 20px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.18);
+    font-size: 15px;
+    height: 40px;
+    padding: 0px 10px;
+    transition: 0.3s;
+    margin-left: 10px;
+}
+.header-name:hover {
+    box-shadow: 1px 1px 5px #666666;
+    transition: 0.3s;
+}
+.dropdown-menu-off {
+    display: none;
+}
+.dropdown-menu-on {
+    display: block;
+    position: absolute;
+    background-color: white;
+    top: 80%;
+    right: 85px;
+    width: 240px;
+    height: 120px;
+    box-shadow: 1px 1px 5px #666666;
+    border-radius: 10px;
+}
+.fa-user-circle {
+    font-size: 30px;
+}
+.dropdown-first {
+    cursor: pointer;
+    font-weight: bold;
+    padding-top: 20px;
+}
+.dropdown-second {
+    cursor: pointer;
+    padding-top: 15px;
+}
+.dropdown-menu-on li {
+    padding-left: 15px;
+}
+.dropdown-menu-on hr {
+    width: 100%;
+    margin-top: 20px;
+}
+.github:hover {
+    border-radius: 20px;
+    background-color: rgba(223, 223, 223, 0.612);
+    transition: 0.4s;
+}
+.nonsplash-fixed-nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 79px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    background-color: white;
+    box-shadow: 1px 1px 1px #8b8b8b;
+}
+.login-signup {
+    color: black;
+    border-radius: 21px;
+}
+.nonsplash-nav button:last-child {
+    margin-right: 35px;
+    border-radius: 21px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.18);
+}
+.nonsplash-nav button:last-child:hover {
+    border: 1px black;
+    box-shadow: 1px 1px 5px #666666;
+    transition: 0.3s;
+}
+.nonsplash-form-button {
+    font-size: 15px;
+    width: 50px;
+    height: 44px;
+    text-align: center;
+    padding: 0px 20px;
+    white-space: nowrap;
+    transition: 0.4s;
+}
+.nonsplash-nav :not(:last-child):hover {
+    border-radius: 20px;
+    background-color: rgba(223, 223, 223, 0.612);
+    transition: 0.3s;
+}
+.nonsplash-nav :not(:first-child) {
+    margin-right: 10px;
+}
+.nonsplash-logo img {
+    padding-left: 35px;
+    height: 35px;
+    width: auto;
+}
+.nonsplash-header-name {
+    margin-right: 35px;
+    border-radius: 20px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.18);
+    font-size: 15px;
+    height: 40px;
+    padding: 0px 10px;
+    transition: 0.3s;
+    margin-left: 10px;
+}
+.nonsplash-header-name:hover {
+    box-shadow: 1px 1px 5px #666666;
+    transition: 0.3s;
+}
+.nonsplash-dropdown-menu-off {
+    display: none;
+}
+.nonsplash-dropdown-menu-on {
+    display: block;
+    position: absolute;
+    background-color: white;
+    top: 80%;
+    right: 35px;
+    width: 240px;
+    height: 120px;
+    box-shadow: 1px 1px 5px #666666;
+    border-radius: 10px;
+}
+.fa-user-circle {
+    font-size: 20px;
+}
+.nonsplash-dropdown-first {
+    cursor: pointer;
+    font-weight: bold;
+    padding-top: 20px;
+}
+.nonsplash-dropdown-second {
+    cursor: pointer;
+    padding-top: 15px;
+}
+.nonsplash-dropdown-menu-on li {
+    padding-left: 15px;
+}
+.nonsplash-dropdown-menu-on hr {
+    width: 100%;
+    margin-top: 20px;
+}
+.nav-search-bar-container:hover {
+    box-shadow: 1px 1px 5px #666666;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.nav-search-bar {
+    font-weight: bold;
+    font-size: 13px;
+    padding: 15px 95px 15px 15px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 1px lightgray solid;
+}
+.search-bar-button {
+    font-size: 20px;
+    padding: 9px 15px 14px 15px;
+    color: #f93e4f;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px lightgray solid;
+}
+.splash-container {
+    display: flex;
+    padding: 100px 0px 0px 85px;
+    background-image: url("https://hoopsbnb-seed.s3.amazonaws.com/artsy_ball_2.jpg");
+    background-size: cover;
+    height: 900px;
+}
+.splash-form-container {
+    padding: 35px;
+    background-color: white;
+    height: 480px;
+    width: 441px;
+    border-radius: 10px;
+}
+.splash-form-title {
+    font-weight: bold;
+    line-height: 1.5;
+    display: flex;
+    font-size: 23px;
+    align-items: center;
+    width: 100%}
+.splash-search-label {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    padding: 15px 0 25px 0;
+}
+.splash-search-input {
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 95%;
+    border: 1px solid #dbdbdb;
+    font-size: 15px;
+    height: 45px;
+    padding-left: 5px;
+}
+.splash-search-input:focus {
+    box-shadow: 0 0 0 1pt #008589;
+}
+.splash-search-submit-button-div {
+    float: right;
+}
+.splash-search-submit-button {
+    font-weight: bold;
+    margin: 0px auto;
+    background-color: #ca0629;
+    font-size: 16px;
+    color: white;
+    padding: 5px 25px;
+    border-radius: 7px;
+    height: 45px;
+}
+.dates-span {
+    margin-bottom: 10px;
+}
+html, body, header, nav, h1, a, ul, li, strong, main, button, i, section, img, div, h2, p, form, fieldset, label, textarea, span, article, footer, time, small {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-family: Circular,  -apple-system,  BlinkMacSystemFont,  Roboto,  Helvetica Neue,  sans-serif;
+    color: inherit;
+    text-align: inherit;
+    text-decoration: inherit;
+    vertical-align: inherit;
+    box-sizing: inherit;
+    background: transparent;
+}
+html {
+    overflow: auto;
+    font-family: Montserrat !important;
+    height: 100%}
+body {
+    height: 100%;
+    width: 100%;
+    color: #484848;
+}
+#root {
+    height: 100%}
+.app-container {
+    height: 100%}
+li {
+    list-style: none;
+    color: #222222;
+}
+ul {
+    list-style: none;
+}
+button {
+    cursor: pointer;
+    outline: none;
+}
+input {
+    outline: none;
+}
+#map-container {
+    height: 100%;
+    width: 100%}
+#map-container-show {
+    height: 350px;
+    width: 600px;
+}

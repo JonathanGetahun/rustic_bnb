@@ -4,7 +4,7 @@ import { fetchListings, updateLocation, updateDisplay } from '../actions/listing
   
 
 
-export default function GoogleMap({ options, onMount, className, onMountProps}) {
+export default function GoogleMap() {
     const dispatch = useDispatch()
 
     
@@ -13,6 +13,7 @@ export default function GoogleMap({ options, onMount, className, onMountProps}) 
     }, [])
     
    const list = useSelector(state => state.list)
+   const originalList = useSelector(state => state.list)
 
 
     const ref = useRef(null)
@@ -42,62 +43,70 @@ export default function GoogleMap({ options, onMount, className, onMountProps}) 
     }, [])
 
     if(map){
-        list.forEach((link, index) => {
-            let newLocation = new window.google.maps.LatLng(link.locationTag.lat, link.locationTag.lng)
+        originalList.forEach((link, index) => {
+            
+            const newLocation = new window.google.maps.LatLng(link.locationTag.lat, link.locationTag.lng)
             const marker = new window.google.maps.Marker({
               map,
               position: newLocation,
               label: `${index+1}`,
               title: link.locationName,
             })
-            link.newLocation = newLocation
-            
+            // link.newLocation = newLocation
+           
             markers.push(newLocation)
             
-            marker.addListener(`click`, ()=> {
-              window.location.href = link.url
-            })
+            // marker.addListener(`click`, (event)=> {
+            //   event.preventDefault()
+            // })
           })
 
-          dispatch(updateLocation)
+        // USED FOR ADDING LATLNG LOCATION INTO LIST ARRAY STATE
+        //   dispatch(updateLocation)
           
     }    
 
 
-    //Coolest thing is google has configured map to update based off of viewing bounds, I
-    //can use effect hook here to conditionally control what renders
     
+    //adding another google api script will break this
     useEffect(() => {
-
+        let displayCheck = [];
         
         if (map) {
-
-             
+                
+             if(markers){
                  window.google.maps.event.addListener(map, 'bounds_changed',  function() {
                     let bounds = map.getBounds()
-
+                
                     
-                     list.forEach( (marker, i) => {
-                        
-                         
-                        if (marker.display === true && (bounds.contains(marker.newLocation)) === false){
-                            dispatch(updateDisplay(marker))
+                        console.log('markers', markers)
+                         markers.map( (marker) => {
+                            
+                           console.log('entering', markers)
+                            if((bounds.contains(marker)) === false ){
+    
+                                displayCheck.push(false)
+                            } else {
+                                displayCheck.push(true)
+                            }
+    
                             
                             
-                        } else if(marker.display === false && (bounds.contains(marker.newLocation) === true)) {
-                                dispatch(updateDisplay(marker))
-                        }
-
-                        console.log("noting", i)
+                        })
+                        console.log('?',displayCheck)
+                        dispatch(updateDisplay(displayCheck))
+                        displayCheck=[]
                         
-                    })
-                    
-             });
+                
+               
+                 });
             
-
+                    }
             
         }
-
+        // console.log("after", displayCheck)
+        // displayCheck=[]
+        
     }, [map])
 
  

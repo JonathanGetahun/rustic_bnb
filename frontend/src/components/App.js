@@ -8,6 +8,7 @@ import Footer from './Footer'
 import SearchPage from './SearchPage'
 import Start from './Start'
 import Example from './example'
+import ViewPage from './ViewPages/viewPage'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
@@ -22,10 +23,13 @@ function App() {
         <Route path="/search/list">
           <Example />
         </Route>
+        <Route path="/search/:id" component={ViewPage} />
+        {/* <Route path="/search/:id" render={(props) => <ViewPage {...props}/>}> */}
+        
          <Route path="/search">
           <SearchPage />
          </Route>
-         
+
          <Route path ="/home">
           <Home />
          </Route>
