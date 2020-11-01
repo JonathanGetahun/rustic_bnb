@@ -14,7 +14,8 @@ function SearchResults({
     id,
     host,
     location,
-    amenities
+    amenities, 
+    locationTag
 }) {
 // console.log("display:", show)
 
@@ -32,7 +33,8 @@ function SearchResults({
                 id: id,
                 host:host,
                 location: location,
-                amenities: amenities
+                amenities: amenities,
+                locationTag: locationTag
             }
         }} style={{ textDecoration: 'none', color: 'black' }}>
         <div className="searchResult" >

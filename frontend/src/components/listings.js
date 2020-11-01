@@ -58,6 +58,7 @@ const dispatch = useDispatch()
                    id={data.id}
                    host={data.host}
                    amenities={data.amenities}
+                   locationTag={data.locationTag}
                 //    show={data.display}
                />
     })

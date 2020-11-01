@@ -36,10 +36,12 @@ export default function GoogleMap() {
             document.head.append(script)
             script.addEventListener('load', onLoad)
             return () => script.removeEventListener('load', onLoad)
+            
+            return
         } else {
             onLoad()
             }  
-
+            console.log("finished")
     }, [])
 
     if(map){
@@ -75,7 +77,7 @@ export default function GoogleMap() {
         if (map) {
                 
              if(markers){
-                 window.google.maps.event.addListener(map, 'bounds_changed',  function() {
+                 new window.google.maps.event.addListener(map, 'bounds_changed',  function() {
                     let bounds = map.getBounds()
                 
                     

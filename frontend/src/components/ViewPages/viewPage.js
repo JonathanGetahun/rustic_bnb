@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import {  useDispatch, useSelector } from 'react-redux'
 import '../../styling/viewPage.css'
 import { fetchListings } from '../../actions/listing_actions'
@@ -11,8 +11,15 @@ import WifiIcon from '@material-ui/icons/Wifi';
 import WhatshotIcon from '@material-ui/icons/Whatshot';
 import KitchenSharpIcon from '@material-ui/icons/KitchenSharp';
 import LocalLaundryServiceIcon from '@material-ui/icons/LocalLaundryService';
+import StarIcon from "@material-ui/icons/Star"
+import ViewMap from './viewMap'
 import moment from 'moment'
-import { DateRangePicker, DayPickerRangeController } from 'react-dates';
+// import 'react-dates/initialize';
+// import { DateRangePicker, DayPickerRangeController } from 'react-dates';
+// import { START_DATE, END_DATE } from 'react-dates/src/constants';
+// import 'react-dates/lib/css/_datepicker.css';
+// import './datepicker_override_show.css'
+import DatePicker from './datepicker'
 
 function ViewPage(props) {
 
@@ -24,9 +31,6 @@ function ViewPage(props) {
          
     }, [])
 
-    console.log(props.location.state)
-    // const originalList = useSelector(state => state.list)
-    // locationId = props.location.state.id
     let pictures;
     let amenities;
     
@@ -47,7 +51,31 @@ function ViewPage(props) {
                 return <li key={i}>{things}</li>
             })
     
+            //booking box stuff below
+            const [ startDate, changeStart ] = useState(null)
+            const [ endDate, changeEnd ] = useState(null)
+            const [ focusedInput, changeFocusInput ] = useState(null)
+            const [ focusedInputLeftCol, changeFocusLeft ] = useState(startDate)
+            const [ bookedDates, changeBookedDates ] = useState([])
+            const [ focused, changeFocus ] = useState(null)
+            const [ guests, changeGuests ] = useState(1)
 
+            const numGuests = (n) => {
+                changeGuests(n)
+            }
+
+            // const onFocusChange = () => {
+            //     changeFocusLeft(START_DATE ? END_DATE : START_DATE)
+            // }
+
+            const handleSubmit = (e) => {
+                e.preventDefault()
+            }
+
+            const changeDate = ({startDate, endDate}) => {
+                changeStart(startDate)
+                changeEnd(endDate)
+            }
     return (
 <div className="arena-details-container">
                     <div className="arena-title-city-pics">
@@ -133,22 +161,23 @@ function ViewPage(props) {
                             Enter your desired hoop dates for accurate pricing and availability.
                         </div>
                         {/* <DayPickerRangeController
-                                // startDate={this.state.startDate}
-                                // endDate={this.state.endDate}
-                                // onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
-                                // focusedInput={this.state.focusedInputLeftCol}
-                                // onFocusChange={this.onFocusChange}
-                                // initialVisibleMonth={() => moment().add(0, "M")}
-                                // numberOfMonths={2}
-                                // // isOutsideRange={day => !isInclusivelyAfterDay(day, moment())}
-                                // hideKeyboardShortcutsPanel={true}
+                                startDate={startDate}
+                                endDate={endDate}
+                                onDatesChange={({ startDate, endDate }) => changeDate({ startDate, endDate })}
+                                focusedInput={focusedInputLeftCol}
+                                onFocusChange={onFocusChange}
+                                initialVisibleMonth={() => moment().add(0, "M")}
+                                numberOfMonths={2}
+                                // isOutsideRange={day => !isInclusivelyAfterDay(day, moment())}
+                                hideKeyboardShortcutsPanel={true}
                         /> */}
                         </div>
                         <div className="arena-show-map-container">
                             <div className="show-map-title">
                                 The Neighborhood
                             </div>
-                            {/* <ArenaShowMap arena={this.props.arena} /> */}
+                            {<ViewMap lat={props.location.state.locationTag.lat}
+                                lng={props.location.state.locationTag.lng} />}
                             <div className="show-map-description">
                                 Exact location information is provided after a booking is confirmed.
                             </div>
@@ -159,32 +188,32 @@ function ViewPage(props) {
                     {/* <form className="arenas-booking-form" onSubmit={this.handleSubmit}> */}
                     <form className="arenas-booking-form" >
                         <div className="arenas-booking-pricing">
-                            {/* <div className="booking-dollars">${this.props.arena.price}</div> */}
+                            <div className="booking-dollars">{props.location.state.price}</div>
                             <div className="booking-per-day">/ day</div>
                         </div>
                         <div className="booking-rating">
                             <div className="booking-star">
-                                <i className="fas fa-star" />
+                                <StarIcon />
                                 4.85 (99+ reviews)
                             </div>
                         </div>
                         <div className="booking-dates">
                             {/* <DateRangePicker
-                                // startDate={this.state.startDate}
-                                // startDateId="mm/dd/yyyy"
-                                // endDate={this.state.endDate}
-                                // endDateId="mm/dd/yyyy"
-                                // onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
-                                // focusedInput={this.state.focusedInput}
-                                // onFocusChange={focusedInput => this.setState({ focusedInput })}
-                                // numberOfMonths={1}
-                                // hideKeyboardShortcutsPanel={true}
-                                // startDatePlaceholderText="Check-in"
-                                // endDatePlaceholderText="Check-out"
-                                // block={true}
-                                // noBorder={false}
-                            // isDayBlocked={day => this.dayBlocked(day)}
+                                startDate={startDate}
+                                startDateId="mm/dd/yyyy"
+                                endDate={endDate}
+                                endDateId="mm/dd/yyyy"
+                                onDatesChange={({ startDate, endDate }) => changeDate({ startDate, endDate })}
+                                focusedInput={focusedInput}
+                                onFocusChange={focusedInput => changeFocus({ focusedInput })}
+                                numberOfMonths={1}
+                                hideKeyboardShortcutsPanel={true}
+                                startDatePlaceholderText="Check-in"
+                                endDatePlaceholderText="Check-out"
+                                block={true}
+                                noBorder={false}
                             /> */}
+                            <DatePicker />
                         </div>
                         {/* <HoopersDropDown arrowType="bookingArrow" numHoopers={this.numHoopers} /> */}
                         <div className="booking-reserve-button">
