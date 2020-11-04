@@ -18,7 +18,7 @@ const checkAuthorization = (req, userID) => {
     const decodedToken = getDecodedToken(req);
     if(!userID || !decodedToken || !decodedToken.id || decodedToken.id.toString() !== userID.toString()) {
         return response.status(401).json({
-            error: 'token missing or invalid: Not Authorized: jonny'
+            error: 'token missing or invalid: Not Authorized'
         })
     }
 }

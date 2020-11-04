@@ -5,15 +5,21 @@ const listingsSchema = new mongoose.Schema({
     locationName: {
         type: String
     }, 
-    images:[String],
+    images: {
+        type:Array
+    },
     amenities: {
         type:Array
     }, 
-    locationTag:{Number},
+    locationTag:Array,
     price: Number,
     rating: Number,
     favorited: Boolean,
-    book: Boolean
+    book: Boolean,
+    id:Number,
+    host:String,
+    location:String,
+    display:Boolean
 })
 
 module.exports = mongoose.model('listing', listingsSchema)

@@ -13,10 +13,14 @@ import { Button,
   Typography,
   Grid,
   Link } from '@material-ui/core';
+  
 
   import * as yup from 'yup'
   import { Formik, Form } from 'formik'
   import { loginUser } from '../../services/userServices'
+
+  import { useDispatch } from 'react-redux'
+  import { fetchUser } from '../../actions/user_actions'
 
   let LoginSchema = yup.object().shape({
     email: yup.string().email().required("This field is required"),
@@ -47,12 +51,20 @@ import { Button,
       padding:'5px',
       marginLeft:'6px',
       cursor:"pointer"
+    }, 
+    root: {
+      width: '100%',
+      '& > * + *': {
+        marginTop: theme.spacing(2),
+      },
     }
   }));
 
 
 
 function LoginContent(props) {
+
+  const dispatch = useDispatch()
 
   const { open, setLogin, setSignUp } = props;
 
@@ -63,13 +75,17 @@ function LoginContent(props) {
     setSignUp(true)
   }
 
+  const loginSuccess = () => {
+    setLogin(false)
+  }
   const classes = useStyles()
 
+
   return (
-    //Seems like it handles a lot of things in the background like closing the 
-    //overlay container and opening a new one.
+
+    //closing the overlay container and opening a new one.
     //---> uses open state built in to control whether it renders or not from other modules
-    <Dialog className="login" aria-labelledby="simple-dialog-title" open={open} onClose={(event) => {setLogin(false)}}>
+    <Dialog className="login" aria-labelledby="simple-dialog-title" open={open} onClose={(event) => setLogin(false)}>
       
       <DialogTitle className={classes.title} onClick={() => setLogin(false)}>X</DialogTitle>
       <Container component="main" maxWidth="xs" spacing={5}>
@@ -89,15 +105,19 @@ function LoginContent(props) {
               const logUser = await loginUser({
                 ...values
               })
-              console.log(logUser)
+              
               window.localStorage.setItem(
                 'loggedUser', JSON.stringify(logUser)
               )
-              setLogin(false)
+
+              dispatch(fetchUser(values))
+              loginSuccess()
               // history.push('/home')
-              history.go(0)
+              // history.go(0)
             }catch(e){
-              console.error(e.message)
+              console.error("NOPE",e.message)
+              window.alert("Incorrect Credentials - please try again")
+              
             }
 
             }}

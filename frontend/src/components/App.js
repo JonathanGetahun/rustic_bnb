@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styling/App.css';
 
 
@@ -11,7 +11,18 @@ import Example from './example'
 import ViewPage from './ViewPages/viewPage'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
+import { loggedIn } from '../actions/user_actions'
+import { getCurrentUser } from '../services/userServices'
+import { useDispatch } from 'react-redux'
+
 function App() {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    if(getCurrentUser()){
+      dispatch(loggedIn())
+    }
+  }, [])
+
   return (
   
     

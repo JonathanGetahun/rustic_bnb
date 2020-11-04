@@ -5,10 +5,10 @@ const initialState = [];
 const  listReducer = (state = initialState, action) => {
     
 
-    console.log("working")
+    
     switch(action.type){
         case RECEIVE_LISTINGS:
-            console.log("working-1")
+            
             console.log(action.payload.data)
             return [...action.payload.data]
         case UPDATE_LOCATION:

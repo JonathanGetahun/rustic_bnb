@@ -82,7 +82,7 @@ function SignUpContent(props) {
                  await signUpUser({
                   ...values
                 });
-                
+                switchLogin()
               } catch (e) {
                 console.error(e.message)
               }

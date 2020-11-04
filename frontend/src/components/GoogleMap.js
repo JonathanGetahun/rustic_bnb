@@ -51,7 +51,7 @@ export default function GoogleMap() {
             const marker = new window.google.maps.Marker({
               map,
               position: newLocation,
-              label: `${index+1}`,
+              label: `$${link.Price}`,
               title: link.locationName,
             })
             // link.newLocation = newLocation

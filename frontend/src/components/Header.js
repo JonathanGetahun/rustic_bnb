@@ -11,8 +11,8 @@ import SignUpContent from './Modal_Parts/SignUp_Container'
 import { getCurrentUser, logout } from '../services/userServices'
 // import { useHistory } from 'react-router-dom'
 
-
-
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchUser, logoutUser } from '../actions/user_actions'
 
 
 function Header() {
@@ -23,7 +23,7 @@ function Header() {
     const [anchorEl, setAnchorEl] = useState(null)
     const open = Boolean(anchorEl)
 
-    const [showLogin, setLogin ] = useState(true);
+    const [showLogin, setLogin ] = useState(false);
     const openModalLogin = () => setLogin(true);
     const [showSignUp, setSignUp] = useState(false);
     const openModalSignUp = () => setSignUp(true);
@@ -31,15 +31,28 @@ function Header() {
     const [showUser, setUser ] = useState(false)
     const autoCompleteRef = useRef(null)
 
+  const logged = useSelector(state => state.user)
+  const dispatch = useDispatch();
+
+
+  console.log("user",showUser)
+
+
     useEffect(()=> {
-        const user = getCurrentUser()
-        if(user){
+        
+        if(logged.logged){
             setUser(true)
+            
         }
-    }, [showUser])
-    // if(getCurrentUser()){
-    //     setUser(true)
-    // }
+    }, [logged])
+
+    // useEffect(() => {
+    //   if(!logged.logged) {
+    //     setUser(false)
+    //     console.log("reached?")
+    //   }
+    // }, [logged])
+  
 
     const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
@@ -50,8 +63,12 @@ function Header() {
       };
     
     const handleLogout = (event) => {
-        logout()
+        // logout()
         setUser(false)
+        dispatch(logoutUser())
+        console.log("2")
+        
+        
         console.log("working")
     }
     let autoComplete;
