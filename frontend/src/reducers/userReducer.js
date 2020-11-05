@@ -8,11 +8,10 @@ const userReducer = (state =initialState, action) => {
             
                 state = {...state, ...action.payload, logged: true}
                 return state
-            
-            return state
         
         case LOGGED_IN:
-            return {...state, logged: true}
+            let user = UserServices.getCurrentUser()
+            return {...user, logged: true}
         case LOGOUT_USER: 
             UserServices.logout()
             return {...initialState, logged: false}

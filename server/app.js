@@ -9,6 +9,7 @@ const signupRouter = require('./controllers/signupRouter')
 const loginRouter = require('./controllers/loginRouter')
 const s3Router = require('./controllers/s3Router')
 const listRouter = require('./controllers/listingRouter')
+const bookingRouter = require('./controllers/bookingRouter')
 
 const MONGO_URI = process.env.MONGODB_URI
 mongoose.connect(MONGO_URI
@@ -23,6 +24,7 @@ app.use('/', signupRouter)
 app.use('/login', loginRouter)
 app.use('/home', s3Router)
 app.use('/search', listRouter)
+app.use('/users', bookingRouter)
 
 
 module.exports = app

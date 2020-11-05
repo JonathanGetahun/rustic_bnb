@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {  useDispatch, useSelector } from 'react-redux'
 import { connect } from 'react-redux'
 import '../../styling/viewPage.css'
-import { fetchListings } from '../../actions/listing_actions'
+
 import Button from '@material-ui/core/Button';
 import StarsTwoToneIcon from '@material-ui/icons/StarsTwoTone';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
@@ -23,9 +23,13 @@ import 'react-dates/lib/css/_datepicker.css';
 import './datepicker_override_show.css'
 import DatePicker from './datepicker'
 
+import { withRouter } from 'react-router-dom';
 import ViewLogin from './viewLogin'
 import LoginContent from '../Modal_Parts/Login_Container'
 import { getCurrentUser } from '../../services/userServices'
+import { fetchListings } from '../../actions/listing_actions'
+import { loggedIn } from '../../actions/user_actions'
+import { createBooking } from '../../services/bookingServices'
 
 class ViewPage extends React.Component {
     constructor(props) {
@@ -48,8 +52,9 @@ class ViewPage extends React.Component {
         this.numGuests = this.numGuests.bind(this);
         this.handleLoginClick = this.handleLoginClick.bind(this);
         this.setSignUpClick = this.setSignUp.bind(this);
-        this.setLogin = this.setLogin(this)
-        this.handleMouseClick = this.handleMouseClick.bind(this)
+        this.setLogin = this.setLogin(this);
+        this.handleMouseClick = this.handleMouseClick.bind(this);
+        this.handleReserve = this.handleReserve.bind(this);
     }
 
     
@@ -60,6 +65,7 @@ class ViewPage extends React.Component {
     componentDidMount() {
         
         this.props.fetchListings()
+        loggedIn()
     }
 
     onFocusChange() {
@@ -89,6 +95,29 @@ class ViewPage extends React.Component {
     handleMouseClick(){
         this.handleLoginClick()
     }
+
+    handleReserve(e) {
+        e.preventDefault();
+        let listing = this.props.originalList[this.props.match.params.id]
+        console.log("listing check", listing)
+        let startDate = moment(this.state.startDate).format('YYYY-MM-DD');
+        let endDate = moment(this.state.endDate).format('YYYY-MM-DD');
+        let userEmail = getCurrentUser().email
+        let newBooking = {
+            images: listing.images,
+            startDate: startDate,
+            endDate: endDate,
+            location: listing.location,
+            locationName: listing.locationName,
+            price: listing.Price,
+            email: userEmail
+        }
+        const history = this.props.history;
+        const userId = this.props.user.id;
+        createBooking(newBooking)
+            .then(() => history.push(`/users/${userId}`));
+
+    }
     handleSubmit(e) {
         e.preventDefault();
         if (this.props.currentUser) {
@@ -111,63 +140,10 @@ class ViewPage extends React.Component {
         }
     }
 
-    // const dispatch = useDispatch()
-
-
-    // useEffect(() => {
-    //     dispatch(fetchListings())
-         
-    // }, [])
-
-    // let pictures;
-    // let amenities;
-    
-        
-    //          pictures = props.location.state.img.map((pics,i) => {
-    //             if(i == 0) {
-    //                 return;
-    //             }
-    //             return <div className="arena-sub-pic" key={i}>
-    //             <img
-    //                 src={pics}
-    //                 alt={`pic-${i}`}
-    //             />
-    //             </div>
-    //         })
-        
-    //         amenities = props.location.state.amenities.map((things,i) => {
-    //             return <li key={i}>{things}</li>
-    //         })
-    
-    //         //booking box stuff below
-    //         const [ startDate, changeStart ] = useState(null)
-    //         const [ endDate, changeEnd ] = useState(null)
-    //         const [ focusedInput, changeFocusInput ] = useState(null)
-    //         const [ focusedInputLeftCol, changeFocusLeft ] = useState(startDate)
-    //         const [ bookedDates, changeBookedDates ] = useState([])
-    //         const [ focused, changeFocus ] = useState(null)
-    //         const [ guests, changeGuests ] = useState(1)
-
-    //         const numGuests = (n) => {
-    //             changeGuests(n)
-    //         }
-
-            // const onFocusChange = () => {
-            //     changeFocusLeft(START_DATE ? END_DATE : START_DATE)
-            // }
-
-            // const handleSubmit = (e) => {
-            //     e.preventDefault()
-            // }
-
-            // const changeDate = ({startDate, endDate}) => {
-            //     changeStart(startDate)
-            //     changeEnd(endDate)
-            // }
 render(){
     const listing = this.props.originalList[this.props.match.params.id];
     const user = getCurrentUser();
-        // console.log(listing)
+        
         user === null && console.log("logged out")
         user !== null && console.log("logged in")
     if(!listing) { 
@@ -213,7 +189,7 @@ render(){
                                     </div>
                                 </div>
 
-                                {listing.location.location}
+                                {listing.location}
                             </div>
                             <br></br>
                             <div className="arenas-show-key-list">
@@ -300,8 +276,9 @@ render(){
                             <div className="show-map-title">
                                 The Neighborhood
                             </div>
-                            {<ViewMap lat={listing.locationTag.lat}
-                                lng={listing.locationTag.lng} />}
+                            {<ViewMap lat={listing.locationTag[0].lat}
+                                lng={listing.locationTag[0].lng} />}
+                                {console.log("here?", listing)}
                             <div className="show-map-description">
                                 Exact location information is provided after a booking is confirmed.
                             </div>
@@ -312,7 +289,7 @@ render(){
                     {/* <form className="arenas-booking-form" onSubmit={this.handleSubmit}> */}
                     <form className="arenas-booking-form" >
                         <div className="arenas-booking-pricing">
-                            <div className="booking-dollars">{listing.location.Price}</div>
+                            <div className="booking-dollars">${listing.Price}</div>
                             <div className="booking-per-day">/ day</div>
                         </div>
                         <div className="booking-rating">
@@ -357,12 +334,12 @@ render(){
                         <DropDown arrowType="bookingArrow" numGuests={this.numGuests} />
                         <div className="booking-reserve-button">
                             {console.log("WHAT IS IT", this.props.user.logged)}
-                            {user && <Button variant="outlined" className="reserve_button">Reserve</Button>}
+                            {user && <Button variant="outlined" className="reserve_button" onClick={this.handleReserve}>Reserve</Button>}
                             {!user && <Button variant="outlined" className="login_reserve_button" onClick={this.handleLoginClick}>Log in to Reserve</Button> }
                             {/* {this.props.user.logged === undefined && <Button variant="outlined" className="login_reserve_button">Log in to Reserve</Button> } */}
                             {console.log(this.state.showLogin)}
                             <ViewLogin open={this.state.showLogin} />
-                            <p>You won't be charged. Pinky promise.</p>
+                            <p>Just a demo. Your money is safe.</p>
                         </div>
                     </form>
                 </div>
@@ -387,6 +364,6 @@ const mdp = dispatch => {
 }
 
 // export default ViewPage
-export default connect(msp, mdp)(ViewPage);
+export default withRouter(connect(msp, mdp)(ViewPage));
 
 

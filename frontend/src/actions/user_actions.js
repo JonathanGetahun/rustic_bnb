@@ -20,9 +20,11 @@ export const loggedIn = () => {
     }
 }
 
+//for loggin in user from login modal
 export const fetchUser = (credentials) => dispatch => {
     
     return UserServices.loginUser(credentials).then(data => {
         return dispatch(receiveUser(data))
     })
 }
+

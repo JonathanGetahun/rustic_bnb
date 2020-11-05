@@ -175,7 +175,7 @@ function Header() {
                 onClose={handleClose}
               >
                 <MenuItem onClick={() => openModalLogin()}>Log In</MenuItem>
-                <MenuItem onClick={() => openModalSignUp}>Sign Up</MenuItem>
+                <MenuItem onClick={() => openModalSignUp()}>Sign Up</MenuItem>
               </Menu>
 
                 {/* </div> */}

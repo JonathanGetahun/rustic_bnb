@@ -9,7 +9,9 @@ const userSchema = new mongoose.Schema({
         trim: true,
         unique: true
     },
-    passwordHash: String
+    passwordHash: String, 
+    bookings: [{type: mongoose.Schema.Types.ObjectId, ref: 'Booking'}],
+    id: Number
 })
 
 userSchema.set('toJSON', {

@@ -9,6 +9,7 @@ import SearchPage from './SearchPage'
 import Start from './Start'
 import Example from './example'
 import ViewPage from './ViewPages/viewPage'
+import Bookings from './Bookings/Bookings'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import { loggedIn } from '../actions/user_actions'
@@ -31,6 +32,9 @@ function App() {
     <Router>
       <Header />
       <Switch>
+      <Route path="/users/:id">
+          <Bookings />
+        </Route>
         <Route path="/search/list">
           <Example />
         </Route>
