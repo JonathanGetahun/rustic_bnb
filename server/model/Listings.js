@@ -19,7 +19,21 @@ const listingsSchema = new mongoose.Schema({
     id:Number,
     host:String,
     location:String,
-    display:Boolean
+    display:Boolean, 
+   
+            accuracy: Array,
+            communication: Array,
+            cleanliness: Array,
+            locationReview: Array,
+            checkIn: Array,
+            value: Array,
+        
+    reviewText: [
+        {
+            Date: Date,
+            text: String
+        }
+    ]
 })
 
 module.exports = mongoose.model('listing', listingsSchema)

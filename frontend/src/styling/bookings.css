@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap');
+
+.booking_info {
+    padding-left: 110px;
+    padding-top: 50px;
+}
+
+.booking_heading {
+    padding-left:15px;
+    padding-bottom: 40px;
+    font-family: 'Source Code Pro', monospace !important;
+}
+
+.booking_heading > h2 {
+    font-weight: 200;
+}

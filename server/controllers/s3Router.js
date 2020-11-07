@@ -77,12 +77,15 @@ router.get('/', async(req,res) => {
             }
             async function updateMongo(){
                 let result2 = [...result]
-                for (let j = 1; j<=10; j++){
+                for (let j = 0; j<=9; j++){
                         let insertIMG = result2.splice(0,5)
-                        await Listings.findOneAndUpdate({id:j}, {images:insertIMG})
+                        
+                        let x = await Listings.findOneAndUpdate({id:j}, {images:insertIMG})
+                        
                 }
             }
             updateMongo()
+            
             res.send(result)
         }
         

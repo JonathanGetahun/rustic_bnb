@@ -1,0 +1,24 @@
+
+
+.Howdy {
+    margin: auto;
+    /* width: 50%; */
+    padding-top:18px;
+}
+
+.rating-container { 
+    column-count: 2;
+    column-gap: 50px;
+    padding:20px;
+}
+
+.review-text {
+    width:100%;
+    height: 150px;
+    border: solid 1px black;
+}
+
+textarea::placeholder{
+    color: green;
+    padding-left: 3px;
+}   

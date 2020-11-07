@@ -40,7 +40,6 @@ export default function ViewMap({lat, lng}) {
             const marker = new window.google.maps.Marker({
               map,
               position: newLocation,
-              label: `1`,
               title: "Book",
             })
 

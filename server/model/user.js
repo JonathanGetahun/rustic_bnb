@@ -10,9 +10,11 @@ const userSchema = new mongoose.Schema({
         unique: true
     },
     passwordHash: String, 
-    bookings: [{type: mongoose.Schema.Types.ObjectId, ref: 'Booking'}],
+    bookings: [{type: mongoose.Schema.Types.Mixed, ref: 'Booking'}],
     id: Number
 })
+//Use mixed because mongoose will treat each value of array like its own schema,
+//so you will only get the ObjectId if you use that.
 
 userSchema.set('toJSON', {
     transform: (document, returnedObject) => {

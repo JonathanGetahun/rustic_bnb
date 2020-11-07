@@ -44,11 +44,19 @@ class ViewPage extends React.Component {
             focused: null,
             guests: 1,
             showLogin: false,
-            showSignUp: false
+            showSignUp: false,
+            accuracy: 3,
+            communication: 3,
+            cleanliness:3,
+            locationReview: 3,
+            checkIn: 3,
+            value:3,
+            text: "",
+            reviewDate: ""
         };
 
         this.onFocusChange = this.onFocusChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
         this.numGuests = this.numGuests.bind(this);
         this.handleLoginClick = this.handleLoginClick.bind(this);
         this.setSignUpClick = this.setSignUp.bind(this);
@@ -110,7 +118,8 @@ class ViewPage extends React.Component {
             location: listing.location,
             locationName: listing.locationName,
             price: listing.Price,
-            email: userEmail
+            email: userEmail,
+            id: listing.id
         }
         const history = this.props.history;
         const userId = this.props.user.id;
@@ -118,27 +127,7 @@ class ViewPage extends React.Component {
             .then(() => history.push(`/users/${userId}`));
 
     }
-    handleSubmit(e) {
-        e.preventDefault();
-        if (this.props.currentUser) {
-            let arena_id = this.props.arena.id;
-            let startDate = moment(this.state.startDate).format('YYYY-MM-DD');
-            let endDate = moment(this.state.endDate).format('YYYY-MM-DD');
-            let newBooking = {
-                guest_id: this.props.currentUser.id,
-                arena_id,
-                start_date: startDate,
-                end_date: endDate,
-                guests: this.state.guests
-            };
-            const history = this.props.history;
-            const userId = this.props.currentUser.id;
-            this.props.createBooking(newBooking)
-                .then(() => history.push(`/users/${userId}/bookings`));
-        } else {
-            this.props.openModal('login');
-        }
-    }
+
 
 render(){
     const listing = this.props.originalList[this.props.match.params.id];
@@ -247,7 +236,7 @@ render(){
                             Availabilities
                         </div>
                         <div className="availabilities-description">
-                            Enter your desired hoop dates for accurate pricing and availability.
+                            Enter your desired trip dates for accurate pricing and availability.
                         </div>
                         {/* <DayPickerRangeController
                                 startDate={startDate}
@@ -271,6 +260,18 @@ render(){
                                 // isOutsideRange={day => !isInclusivelyAfterDay(day, moment())}
                                 hideKeyboardShortcutsPanel={true}
                         />
+                        </div>
+                        <div className="arena-availabilities-container">
+                        <div className="availabilities-title">
+                            Reviews
+                        </div>
+                        <div className="availabilities-description">
+                            Updated ratings of this location
+                        </div>
+                            <div>
+
+                            </div>
+
                         </div>
                         <div className="arena-show-map-container">
                             <div className="show-map-title">

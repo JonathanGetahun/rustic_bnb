@@ -13,11 +13,12 @@ import { getCurrentUser, logout } from '../services/userServices'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchUser, logoutUser } from '../actions/user_actions'
+import { useHistory } from 'react-router-dom'
 
 
 function Header() {
 
-    // const history = useHistory()
+    const history = useHistory()
 
     //hooks for the dropdown conditionals 
     const [anchorEl, setAnchorEl] = useState(null)
@@ -66,10 +67,12 @@ function Header() {
         // logout()
         setUser(false)
         dispatch(logoutUser())
-        console.log("2")
-        
-        
-        console.log("working")
+        window.location.reload()
+    }
+
+    //handles the Reservations Tab
+    const handleBooked = () => {
+      history.push(`/users/${logged.id}`)
     }
     let autoComplete;
     // useEffect(() => {
@@ -146,6 +149,7 @@ function Header() {
                 onClose={handleClose}
               >
                 <MenuItem onClick={() => handleLogout()}>Logout</MenuItem>
+                <MenuItem onClick={() => handleBooked()}>Reservations</MenuItem>
               </Menu>
                         </>
                         :

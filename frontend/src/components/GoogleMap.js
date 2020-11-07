@@ -47,11 +47,15 @@ export default function GoogleMap() {
     if(map){
         originalList.forEach((link, index) => {
             
-            const newLocation = new window.google.maps.LatLng(link.locationTag.lat, link.locationTag.lng)
+            const newLocation = new window.google.maps.LatLng(link.locationTag[0].lat, link.locationTag[0].lng)
+            var pinIcon = {
+                url: `https://chart.googleapis.com/chart?chst=d_bubble_icon_text_small&chld=snack|bb|$${link.Price}|FFBB00|000000`
+            };
             const marker = new window.google.maps.Marker({
               map,
               position: newLocation,
-              label: `$${link.Price}`,
+            //   label: `$${link.Price}`,
+              icon: pinIcon,
               title: link.locationName,
             })
             // link.newLocation = newLocation
@@ -70,7 +74,7 @@ export default function GoogleMap() {
 
 
     
-    //adding another google api script will break this
+    
     useEffect(() => {
         let displayCheck = [];
         

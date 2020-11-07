@@ -1,7 +1,7 @@
 const bookingRouter = require ('express').Router();
 const Bookings = require('../model/bookings');
 const User = require('../model/user');
-
+const mongoose = require('mongoose')
 
 
 bookingRouter.get('/:id', async(req, res) => {
@@ -38,7 +38,8 @@ bookingRouter.post('/', async (req, res) => {
         location: body.location,
         locationName: body.locationName,
         price: body.price,
-        user: user
+        user: user, 
+        id: body.id
     }).save()
     console.log(booking)
 
@@ -48,6 +49,17 @@ bookingRouter.post('/', async (req, res) => {
     }).populate("bookings")
 
     res.json(booking)
+})
+
+bookingRouter.delete('/', async(req, res) => {
+    body = req.body
+
+    console.log("body will not work", body)
+    var id = mongoose.Types.ObjectId(body.bookingId)
+    const deleted = await User.updateOne({email: body.userId},
+        {$pull: {'bookings': {'_id':id}}}, {safe: true, multi: true})
+
+    res.status(200).json(deleted)
 })
 
 

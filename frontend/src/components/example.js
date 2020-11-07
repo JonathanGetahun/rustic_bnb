@@ -1,4 +1,5 @@
 import React from 'react'
+import ReviewModal from '../components/Reviews.js/ReviewModal'
 
 // import '../styling/Slider.css'
 
@@ -30,7 +31,9 @@ function Example() {
                 <img src={"https://www.talkwalker.com/images/2020/blog-headers/image-analysis.png"} height="200" width="200"/>
                 <img src={url[1]} height="200" width="200"/>
             </Carousel> */}
-            <GoogleMap />
+            {/* <GoogleMap /> */}
+            <h1>hehe</h1>
+            {ReviewModal()}
         </div>
     )
 }

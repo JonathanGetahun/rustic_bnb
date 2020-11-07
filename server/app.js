@@ -10,6 +10,7 @@ const loginRouter = require('./controllers/loginRouter')
 const s3Router = require('./controllers/s3Router')
 const listRouter = require('./controllers/listingRouter')
 const bookingRouter = require('./controllers/bookingRouter')
+const reviewRouter = require('./controllers/reviewRouter')
 
 const MONGO_URI = process.env.MONGODB_URI
 mongoose.connect(MONGO_URI
@@ -25,6 +26,7 @@ app.use('/login', loginRouter)
 app.use('/home', s3Router)
 app.use('/search', listRouter)
 app.use('/users', bookingRouter)
+app.use('/review', reviewRouter)
 
 
 module.exports = app
