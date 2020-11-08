@@ -7,6 +7,7 @@ const setToken = newToken => {
 }
 
 const loginUser = async credentials => {
+    console.log("credentials received", credentials)
     const response = await axios.post('/login', credentials)
     return response.data
 }

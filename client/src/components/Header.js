@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../styling/header.css'
 import SearchIcon from "@material-ui/icons/Search"
 import IconButton from '@material-ui/core/IconButton'
@@ -30,7 +30,7 @@ function Header() {
     const openModalSignUp = () => setSignUp(true);
 
     const [showUser, setUser ] = useState(false)
-    const autoCompleteRef = useRef(null)
+    
 
   const logged = useSelector(state => state.user)
   const dispatch = useDispatch();
@@ -74,31 +74,10 @@ function Header() {
     const handleBooked = () => {
       history.push(`/users/${logged.id}`)
     }
-    let autoComplete;
-    // useEffect(() => {
-    //   const onLoad = () =>  autoComplete = new window.google.maps.places.SearchBox(autoCompleteRef.current)
-    //   if(!window.google){
-    //     // const script = document.createElement('script')
-    //     // script.src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAlBHUa-VwmusSueaeZay0Z0SIdveaqTHM&libraries=places'
-    //     // document.head.append(script)
-    //     // script.addEventListener('load', onLoad)
-    //     // return () => script.removeEventListener('load', onLoad)
-    //     onLoad()
-    // } else {
-    //     onLoad()
-    //     }  
-    // }, )
-    
-    // useEffect(() => {
-    //   if(window.google){
-    //     console.log('activate')
-    //   const input = document.getElementById("autocomplete-search")
-    //   const autocomplete = new window.google.maps.places.Autocomplete(input)
-    //   }
-    //   console.log('not active')
-    // }, [window.google])
-    
 
+    const handleSearch = () => {
+      history.push('/search')
+    }
 
     //so that it doesn't appear at the start page
     if(window.location.pathname==='/') return null;
@@ -116,9 +95,9 @@ function Header() {
         
 
             <div className="header_center" >
-                {/* ref={autoCompleteRef} */}
-                <input type="text" id="autocomplete-search" placeholder="Enter a destination"/>
-                <SearchIcon />
+                
+                <input type="text"  placeholder="Enter a destination"/>
+                <SearchIcon onClick={handleSearch} className="search_icon" />
             </div>
 
             <div className='header_right'>

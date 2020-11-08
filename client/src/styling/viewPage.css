@@ -16,6 +16,11 @@
     background-color:white;
     color: green;
 }
+
+.view_ratings {
+    column-count: 2;
+    column-gap: 20px;
+}
 .arenas-map-container {
     min-height: 95vh;
     grid-gap: 5px;

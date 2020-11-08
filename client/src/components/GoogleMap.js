@@ -28,8 +28,9 @@ export default function GoogleMap() {
 
     useEffect(() => {
         const onLoad = () => setMap(new window.google.maps.Map(ref.current, {
-            zoom: 6,
-            center: new window.google.maps.LatLng(40.642567,-120.387054)}))
+            zoom: 4,
+            gestureHandling: 'greedy',
+            center: new window.google.maps.LatLng(39.642567,-110.387054)}))
         if(!window.google){
             const script = document.createElement('script')
             script.src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAlBHUa-VwmusSueaeZay0Z0SIdveaqTHM'

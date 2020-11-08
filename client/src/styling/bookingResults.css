@@ -1,0 +1,173 @@
+/*parent position is relative so heart for example has absolute, so it will be 
+absolute to this parent component, so it would __px from the top of the component,
+and stick to the dimensions of the container*/
+.result {
+    border-top:1px solid green;
+    display: flex;
+    width: 850px;
+    border-bottom: 1px solid green;
+    border-right: 1px solid green;
+    border-left: 1px solid green;
+    position: relative;
+    margin-bottom: 20px;
+    padding: 10px;
+    /* border: 1px solid #77aaff; */
+    /* box-shadow:  -1px 1px rgb(120, 177, 120),
+         -2px 2px rgb(120, 177, 120),
+         -3px 3px rgb(120, 177, 120),
+         -4px 4px rgb(120, 177, 120),
+         -5px 5px rgb(120, 177, 120); */
+    border-radius: 8px;
+}
+
+.result:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2)
+}
+
+.result > * {
+    flex: 0 0 auto;
+}
+
+.result_button {
+    /* margin-left: 150px; */
+    margin-top: 15px;
+    margin-right: 10px;
+    position: absolute;
+    margin-left: 725px;
+}
+
+.result_title_location {
+    /* display: flex; */
+    /* margin-left: 20px; */
+    padding-left: 20px;
+    padding-right:10px;
+    margin-left: 250px;
+    width: 380px;
+    height: 200px;
+    position: absolute;
+}
+
+.bookingResults {
+    display: flex;
+    position: relative;
+    /* padding: 10px;
+    padding-right:40px;
+    margin:10px; */
+    /* margin-left:10px; */
+    /* border-bottom: 1px solid black;
+    border-top: 1px solid black; */
+    /* border-right: 1px solid black; */
+    cursor: pointer;
+    width:580px;
+    /* margin-bottom:10px; */
+  }
+
+/*opacity of image*/
+.bookingResult:hover {
+    opacity: .9;
+}
+
+
+.bookingResults > img{
+    margin-bottom: 10px;
+    padding-bottom:50px;
+    width: 300px;
+}
+
+.bookingResult_info {
+    display:absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 500px;
+    /* padding-left: 20px; */
+    /* width:1030px; */
+    /* margin-left:-60px; */
+}
+
+
+.bookingResult_date{
+    /* position: relative; */
+    margin-top: 100px;
+    margin-right: 30px;
+    /* padding-top:190px; */
+    margin-left: 10px;
+    height: 100px;
+    width: 500px;
+    
+    /* position: absolute; */
+}
+
+
+/* .bookingResult_infoTop {
+    position:relative;
+    width: 40vw;
+    width:500px; */
+    /*this was commented out before*/
+    /* margin-top:0px; */
+    /* margin-bottom:20px; */
+/* } */
+
+/* .bookingResult_infoTop > h3 {
+    font-weight: bold;
+    position:absolute; */
+    /* margin-top:25px; */
+/* } */
+
+/* .bookingResult_infoTop > p {
+
+    position: absolute;
+    margin-top:20px;
+    font-size: 13px;
+    font-weight:bolder;
+    color: gray;
+    text-align:justify;
+
+    margin-bottom: 30px;
+  } */
+
+
+
+
+  
+/* .bookingResult_infoBottom {
+
+    margin-top:20px;
+    display: flex;
+
+    justify-content: space-between;
+} */
+
+/* .bookingResults_price > p {
+    position:absolute;
+    text-align: right;
+    right:20px;
+    
+  } */
+
+
+
+.booking_button {
+    position: absolute;
+    /* top: 20px;
+    left: 550px; */
+    /* height: 60px;
+    width: 150px; */
+    border: 1px solid rgba(63, 81, 181, 0.5);
+    color: red;
+    font-size: 0.875rem;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+    /* margin: auto; */
+    width: 87.3px;
+    height: 36px;
+    
+}
+
+.booking_button > p {
+    margin-left: 10px;
+}

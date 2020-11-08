@@ -29,9 +29,10 @@ function BookingResults({
     //state to access user email
     const user = useSelector(state => state.user)
     
-// console.log("display:", show)
+
     let today = moment().format('YYYY-MM-DD')
     let adjStartDate = moment(startDate).format('YYYY-MM-DD')
+    console.log("ORDERING", adjStartDate)
 
     if (moment(today).isBefore(adjStartDate)){
         cancel = true;
@@ -45,35 +46,44 @@ function BookingResults({
         //order matters, userId first then bookingId
         deleteBooking(user.email, bookingId)
     }
+
    
     return (
       
         //  <div className="searchResult" style={{ display: (show ? 'flex' : 'none') }} >
+        <div className="result">
         <Link to={{pathname: `/search/2`}} style={{ textDecoration: 'none', color: 'black' }}>
         <div className="bookingResults" >
             {/* <img src={img} alt="" /> */}
             
             <Slider img={img}/>
-            {cancel 
+            {console.log("THE ID IS ", id )}
+            {/* {cancel 
                 ? <Button 
                     className="booking_button" 
                     variant="contained" 
                     color="secondary"
                     onClick={handleCancel}> Cancel Booking</Button> 
-                : <div className="booking_button">{<ReviewModal id={id}/>}</div>}
-            <div className='bookingResult_info'>
+                : <button 
+                    className="booking_button" >{ReviewModal(id)}</button>} */}
                 {/* <div className="bookingResult_infoTop"> */}
-                    <h3>{title}</h3>
-                    <p>{location}</p>
-                    <br></br>
-                {/* </div> */}
+                <div className="result_title_location">
+                <h3>{title}</h3>
+                 <p>{location}</p>
 
-            <div className="bookingResult_date">
+                 
+                </div>
+                <div className="bookingResult_date">
                 <h2 style={{color: "green"}}>Confirmed!</h2>
                 
                 <h3>Check-in Date: {startNewDate}</h3>
                 <h3>Check-out Date: {endNewDate}</h3>
+                
             </div>
+                    <br></br>
+                {/* </div> */}
+
+
 
                 <div className="bookingResult_infoBottom">
                     <div className="bookingResult_stars">
@@ -86,8 +96,16 @@ function BookingResults({
                 </div>
             </div>
 
-        </div> 
-        </Link>
+         {/* </div>  */}
+         </Link> 
+         <div className="result_button">
+         {cancel ? <button 
+                    className="booking_button" 
+                    onClick={handleCancel}> <p>Cancel Booking</p></button> 
+                     : ReviewModal(id)}
+         </div>
+ 
+         </div>
     ) 
 }
 

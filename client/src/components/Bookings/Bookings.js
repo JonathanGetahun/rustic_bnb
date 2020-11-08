@@ -5,6 +5,7 @@ import BookingResults from './BookingResults'
 import '../../styling/bookings.css'
 import { useHistory } from 'react-router-dom'
 
+
 function Bookings() {
 
     const [user, setUser] = useState(null)
@@ -42,7 +43,8 @@ function Bookings() {
     }else {
         
         heading = <div className="booking_heading" >
-            <h1>Hi, {user.data.firstName} here are your bookings!</h1>
+            {/* have to use inline worth max amount of points in prio */}
+            <h1 style={{fontFamily: 'Source Code Pro'}}>Hi, {user.data.firstName} here are your bookings!</h1>
             <h2>Plan and manage your upcoming trips here</h2>
             </div>
         

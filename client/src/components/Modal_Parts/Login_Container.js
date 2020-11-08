@@ -80,11 +80,32 @@ function LoginContent(props) {
   }
   const classes = useStyles()
 
+  const handleDemo = async (e) => {
+    
+    const demoLogin = await loginUser({
+      email: 'demo@gmail.com',
+      passsword: 'aaaaaa'
+    })
+
+    console.log("demologin", demoLogin)
+    window.localStorage.setItem(
+      'loggedUser', JSON.stringify(demoLogin))
+
+      // dispatch(fetchUser({
+      //   email: 'demo@gmail.com',
+      //   passsword: 'aaaaaa'
+      // }))
+
+      // loginSuccess()
+  }
 
   return (
 
     //closing the overlay container and opening a new one.
     //---> uses open state built in to control whether it renders or not from other modules
+
+      
+    
     <Dialog className="login" aria-labelledby="simple-dialog-title" open={open} onClose={(event) => setLogin(false)}>
       
       <DialogTitle className={classes.title} onClick={() => setLogin(false)}>X</DialogTitle>
@@ -116,7 +137,7 @@ function LoginContent(props) {
               // history.go(0)
             }catch(e){
               console.error("NOPE",e.message)
-              window.alert("Incorrect Credentials - please try again")
+              window.alert("Incorrect Credentials - please try again. Or create an account.")
               
             }
 
@@ -163,15 +184,6 @@ function LoginContent(props) {
           >
             Sign In
           </Button>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit_demo}
-          >
-            Demo Login
-          </Button>
           <Box b={8}>
           <Grid container spacing={5}>
             <Grid item xs>
@@ -188,57 +200,23 @@ function LoginContent(props) {
         </Form>
               )}
       </Formik>
+
       </div>
     </Container>
     </Dialog>
+    /* <Button
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit_demo}
+            onClick={(e) => handleDemo(e)}
+          >
+            Demo Login
+          </Button> */
+ 
   );
 }
 
 
 export default LoginContent
 
-    // const [ open, setOpen ] = useState(false)
-    // const { show, closeModal } = props;
-
-
-    // function handleSubmit(e){
-    //     e.preventDefault();
-    // }
-
-    // function handleSignUpButton(){
-    //   closeModal();
-    //   console.log(open)
-    //   setOpen(!false)
-    //   console.log(open)
-    // }
-
-    // useEffect( () => {
-    //     console.log("works?")
-    // }, [open])
-
-    //added so that the component doesn't get affected by parent css
-    //and is being rendered from the "modal-root" DOM node from the index.html file
-    // return ReactDOM.createPortal(
-    //   <>
-    //   <div className={show ? "overlay" : "hide"} onClick={closeModal} />
-    //     <div className={show ? "modal" : "hide"}>
-    //       <button onClick={closeModal} id="close">X</button>
-       
-    //     <div className="login_form">
-    //         <h1> Log in to Continue </h1>
-    //         <form onSubmit={handleSubmit}>
-    //             <input className="username" type='text' name='username' placeholder='Email Address' />
-    //             <input className="password" type='password' name='password' placeholder='password' />
-    //             <button className="login_button"> Sign In</button>
-    //         </form>
-    //     </div>
-    //     <div className="login_demo">
-    //         <h3 className="login_demo_pointer" type="submit">Demo Login</h3>
-    //         </div>
-    //     <hr />
-    //     <div className="login_switch">Don't have an account. 
-    //     <button className="signup_link" onClick={handleSignUpButton}>Sign Up</button>
-    //     {open && <SignUpContent open={open} closeModal={closeModal} show={show} />} </div>
-    //     </div>
-    //   </>, document.getElementById("modal-root")
-    // );

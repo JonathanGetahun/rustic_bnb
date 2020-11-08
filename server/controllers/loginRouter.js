@@ -6,8 +6,10 @@ const { response } = require('express')
 
 loginRouter.post('/', async(request, response) => {
     const body = request.body
-    
+    console.log("body recieved", body)
     const user = await User.findOne({email: body.email})
+    console.log("user", user)
+    console.log("user pass: ", user.passwordHash)
     const passwordCorrect = user === null ? false 
         : await bcrypt.compare(body.password, user.passwordHash)
 

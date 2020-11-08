@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../styling/start.css'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { Button } from '@material-ui/core'
@@ -19,6 +19,7 @@ function Start() {
     const openModalSignUp = (event) => setSignUp(true);
     
 
+   
 
     return (
         
@@ -40,9 +41,7 @@ function Start() {
         <div className="start_input">
         <input type="text" placeholder="anywhere" />
         
-            <ArrowForwardIcon onClick={() => {
-                history.push('/search')
-                history.go(0)}}
+            <ArrowForwardIcon onClick={openModalSignUp}
             className="arrow" fontSize="large"/>  
         
         </div>
@@ -62,6 +61,16 @@ function Start() {
             onClick={openModalSignUp}> Sign-Up </Button>
             {/* {showSignUp && <SignUpContent closeModal={closeModalSignUp} show={showSignUp} />} */}
             <SignUpContent open={showSignUp} setSignUp={setSignUp} setLogin={setLogin} />
+        </div>
+        <div>
+        {/* <Button
+            fullWidth
+            variant="contained"
+            color="primary"
+            onClick={(e) => handleLogin(e)}
+          >
+            Demo Login
+          </Button> */}
         </div>
         </div>
         </div>

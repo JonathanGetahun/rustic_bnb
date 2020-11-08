@@ -31,6 +31,9 @@ import { fetchListings } from '../../actions/listing_actions'
 import { loggedIn } from '../../actions/user_actions'
 import { createBooking } from '../../services/bookingServices'
 
+import Rating from '@material-ui/lab/Rating';
+import Typography from '@material-ui/core/Typography';
+
 class ViewPage extends React.Component {
     constructor(props) {
         super(props);
@@ -45,14 +48,6 @@ class ViewPage extends React.Component {
             guests: 1,
             showLogin: false,
             showSignUp: false,
-            accuracy: 3,
-            communication: 3,
-            cleanliness:3,
-            locationReview: 3,
-            checkIn: 3,
-            value:3,
-            text: "",
-            reviewDate: ""
         };
 
         this.onFocusChange = this.onFocusChange.bind(this);
@@ -152,6 +147,23 @@ render(){
     const amenities = listing.amenities.map((things,i) => {
                     return <li key={i}>{things}</li>
                 })
+    //gets the date stamp and review
+    const reviewList = listing.reviewText.map((reviews,i) => {
+        let savedDate = moment(reviews.Date).format('MMMM Do YYYY')
+        let review = <div><h5>{savedDate}</h5>{reviews.text}</div>
+        return <li key={i}>{review}</li>
+    })
+
+    //calculates the average reviews received for each citeria
+    const totalReveiew = (data) => data.reduce((a, b) => a + b) / data.length;
+    
+    const accuracy = totalReveiew(listing.accuracy)
+    const communication = totalReveiew(listing.communication)
+    const cleanliness = totalReveiew(listing.cleanliness)
+    const locationReview = totalReveiew(listing.locationReview)
+    const checkIn = totalReveiew(listing.checkIn)
+    const value = totalReveiew(listing.value)
+
 
     return (
 
@@ -268,10 +280,27 @@ render(){
                         <div className="availabilities-description">
                             Updated ratings of this location
                         </div>
-                            <div>
+                            <div className="view_ratings">
+                            <Typography component="legend">accuracy</Typography>
+                            <Rating name="read-only" value={accuracy} readOnly />
 
+                            <Typography component="legend">communication</Typography>
+                            <Rating name="read-only" value={communication} readOnly />
+
+                            <Typography component="legend">cleanliness</Typography>
+                            <Rating name="read-only" value={cleanliness} readOnly />
+                            
+                            <Typography component="legend">location</Typography>
+                            <Rating name="read-only" value={locationReview} readOnly />
+
+                            <Typography component="legend">check-in</Typography>
+                            <Rating name="read-only" value={checkIn} readOnly />
+
+                            <Typography component="legend">value</Typography>
+                            <Rating name="read-only" value={value} readOnly />
                             </div>
-
+                            {/* This is where the list will begin */}
+                            {reviewList}
                         </div>
                         <div className="arena-show-map-container">
                             <div className="show-map-title">
@@ -295,8 +324,7 @@ render(){
                         </div>
                         <div className="booking-rating">
                             <div className="booking-star">
-                                <StarIcon />
-                                4.85 (99+ reviews)
+                    <p>{<StarIcon />}4.85 (99+ reviews)</p>
                             </div>
                         </div>
                         <div className="booking-dates">

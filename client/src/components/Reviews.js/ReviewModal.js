@@ -16,7 +16,7 @@ import { updateReviews } from '../../actions/review_actions';
 //       }
 // })
 
-export default function FormDialog({ id }) {
+export default function FormDialog(id) {
   const [open, setOpen] = useState(false);
   const [accuracy, setAccuracy] = useState(5);
   const [communication, setCommunication] = useState(5);
@@ -66,7 +66,7 @@ export default function FormDialog({ id }) {
         <h1 className="Howdy">Write a Review</h1>
         <DialogContent>
         <div className="rating-container">
-            <Typography component="legend">Controlled</Typography>
+            <Typography component="legend">Accuracy</Typography>
                 <Rating
                     name="simple-controlled"
                     value={accuracy}
@@ -75,7 +75,7 @@ export default function FormDialog({ id }) {
                     }}
                 />
 
-            <Typography component="legend">Controlled</Typography>
+            <Typography component="legend">Communication</Typography>
                 <Rating
                     name="simple-controlled"
                     value={communication}
@@ -83,7 +83,7 @@ export default function FormDialog({ id }) {
                     setCommunication(newValue);
                     }}
                 />
-            <Typography component="legend">Controlled</Typography>
+            <Typography component="legend">Cleanliness</Typography>
                 <Rating
                     name="simple-controlled"
                     value={cleanliness}
@@ -92,7 +92,7 @@ export default function FormDialog({ id }) {
                     }}
                 />
 
-            <Typography component="legend">Controlled</Typography>
+            <Typography component="legend">Location</Typography>
                 <Rating
                     name="simple-controlled"
                     value={locationReview}
@@ -100,7 +100,7 @@ export default function FormDialog({ id }) {
                     setLocationReview(newValue);
                     }}
                 />
-            <Typography component="legend">Controlled</Typography>
+            <Typography component="legend">Check-In</Typography>
                 <Rating
                     name="simple-controlled"
                     value={checkIn}
@@ -109,7 +109,7 @@ export default function FormDialog({ id }) {
                     }}
                 />
 
-            <Typography component="legend">Controlled</Typography>
+            <Typography component="legend">Value</Typography>
                 <Rating
                     name="simple-controlled"
                     value={value}

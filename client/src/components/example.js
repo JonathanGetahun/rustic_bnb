@@ -1,15 +1,22 @@
 import React from 'react'
-import ReviewModal from '../components/Reviews.js/ReviewModal'
+import ReviewModal from './Reviews.js/ReviewModal'
+import { Button } from '@material-ui/core'
 
 // import '../styling/Slider.css'
 
 import GoogleMap from './GoogleMap'
 
-
+import { loginUser } from '../services/userServices'
 
 function Example() {
     
-
+const handleLogin = async (e) => {
+    e.preventDefault()
+    await loginUser({
+        email:"demo@gmail.com",
+        password:"aaaaaa"
+    })
+}
 
     // useEffect(() => {
         //React doesnt want the entire useEffect function to be async,
@@ -34,6 +41,14 @@ function Example() {
             {/* <GoogleMap /> */}
             <h1>hehe</h1>
             {ReviewModal()}
+            <Button
+            fullWidth
+            variant="contained"
+            color="primary"
+            onClick={(e) => handleLogin(e)}
+          >
+            Demo Login
+          </Button>
         </div>
     )
 }
