@@ -1,6 +1,6 @@
 import React from 'react';
 import './loginContent.css';
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 
 import { Button, 
   TextField, 
@@ -68,7 +68,7 @@ function LoginContent(props) {
 
   const { open, setLogin, setSignUp } = props;
 
-  const history = useHistory();
+  // const history = useHistory();
 
   const switchSignup = (event) => {
     setLogin(false)
@@ -80,24 +80,24 @@ function LoginContent(props) {
   }
   const classes = useStyles()
 
-  const handleDemo = async (e) => {
+  // const handleDemo = async (e) => {
     
-    const demoLogin = await loginUser({
-      email: 'demo@gmail.com',
-      passsword: 'aaaaaa'
-    })
+  //   const demoLogin = await loginUser({
+  //     email: 'demo@gmail.com',
+  //     passsword: 'aaaaaa'
+  //   })
 
-    console.log("demologin", demoLogin)
-    window.localStorage.setItem(
-      'loggedUser', JSON.stringify(demoLogin))
+  //   console.log("demologin", demoLogin)
+  //   window.localStorage.setItem(
+  //     'loggedUser', JSON.stringify(demoLogin))
 
-      // dispatch(fetchUser({
-      //   email: 'demo@gmail.com',
-      //   passsword: 'aaaaaa'
-      // }))
+  //     // dispatch(fetchUser({
+  //     //   email: 'demo@gmail.com',
+  //     //   passsword: 'aaaaaa'
+  //     // }))
 
-      // loginSuccess()
-  }
+  //     // loginSuccess()
+  // }
 
   return (
 

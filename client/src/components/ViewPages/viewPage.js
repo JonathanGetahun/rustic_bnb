@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import {  useDispatch, useSelector } from 'react-redux'
+import React from 'react'
 import { connect } from 'react-redux'
 import '../../styling/viewPage.css'
 
@@ -21,11 +20,11 @@ import { DateRangePicker, DayPickerRangeController } from 'react-dates';
 import { START_DATE, END_DATE } from 'react-dates/src/constants';
 import 'react-dates/lib/css/_datepicker.css';
 import './datepicker_override_show.css'
-import DatePicker from './datepicker'
+// import DatePicker from './datepicker'
 
 import { withRouter } from 'react-router-dom';
 import ViewLogin from './viewLogin'
-import LoginContent from '../Modal_Parts/Login_Container'
+// import LoginContent from '../Modal_Parts/Login_Container'
 import { getCurrentUser } from '../../services/userServices'
 import { fetchListings } from '../../actions/listing_actions'
 import { loggedIn } from '../../actions/user_actions'
@@ -128,13 +127,14 @@ render(){
     const listing = this.props.originalList[this.props.match.params.id];
     const user = getCurrentUser();
         
-        user === null && console.log("logged out")
-        user !== null && console.log("logged in")
+        // user === null && console.log("logged out")
+        // user !== null && console.log("logged in")
     if(!listing) { 
         return <div></div>
     }
     const pictures = listing.images.map((pics,i) => {
-                    if(i == 0) {
+                    if(i === 0) {
+                        // eslint-disable-next-line
                         return;
                     }
                     return <div className="arena-sub-pic" key={i}>
@@ -171,7 +171,7 @@ render(){
                     <div className="arena-title-city-pics">
                         <div className="arena-pics">
                             <div className="arena-main-pic">
-                                <img src={listing.images[0]} alt="main-photo" />
+                                <img src={listing.images[0]} alt="main-listing" />
                             </div>
                             <div className="arena-sub-pics">
                                 {pictures}
@@ -299,7 +299,7 @@ render(){
                             <Typography component="legend">value</Typography>
                             <Rating name="read-only" value={value} readOnly />
                             </div>
-                            {/* This is where the list will begin */}
+                            
                             {reviewList}
                         </div>
                         <div className="arena-show-map-container">
@@ -308,7 +308,7 @@ render(){
                             </div>
                             {<ViewMap lat={listing.locationTag[0].lat}
                                 lng={listing.locationTag[0].lng} />}
-                                {console.log("here?", listing)}
+                                {/* {console.log("here?", listing)} */}
                             <div className="show-map-description">
                                 Exact location information is provided after a booking is confirmed.
                             </div>
@@ -362,11 +362,11 @@ render(){
                         </div>
                         <DropDown arrowType="bookingArrow" numGuests={this.numGuests} />
                         <div className="booking-reserve-button">
-                            {console.log("WHAT IS IT", this.props.user.logged)}
+                            
                             {user && <Button variant="outlined" className="reserve_button" onClick={this.handleReserve}>Reserve</Button>}
                             {!user && <Button variant="outlined" className="login_reserve_button" onClick={this.handleLoginClick}>Log in to Reserve</Button> }
                             {/* {this.props.user.logged === undefined && <Button variant="outlined" className="login_reserve_button">Log in to Reserve</Button> } */}
-                            {console.log(this.state.showLogin)}
+                            
                             <ViewLogin open={this.state.showLogin} />
                             <p>Just a demo. Your money is safe.</p>
                         </div>

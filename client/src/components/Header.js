@@ -8,11 +8,8 @@ import { Avatar } from "@material-ui/core"
 import { Link } from 'react-router-dom'
 import LoginContent from './Modal_Parts/Login_Container'
 import SignUpContent from './Modal_Parts/SignUp_Container'
-import { getCurrentUser, logout } from '../services/userServices'
-// import { useHistory } from 'react-router-dom'
-
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchUser, logoutUser } from '../actions/user_actions'
+import { logoutUser } from '../actions/user_actions'
 import { useHistory } from 'react-router-dom'
 
 
@@ -36,7 +33,6 @@ function Header() {
   const dispatch = useDispatch();
 
 
-  console.log("user",showUser)
 
 
     useEffect(()=> {

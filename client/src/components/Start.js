@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import '../styling/start.css'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { Button } from '@material-ui/core'
@@ -41,7 +41,9 @@ function Start() {
         <div className="start_input">
         <input type="text" placeholder="anywhere" />
         
-            <ArrowForwardIcon onClick={openModalSignUp}
+        <ArrowForwardIcon onClick={() => {
+                history.push('/search')
+                history.go(0)}}
             className="arrow" fontSize="large"/>  
         
         </div>

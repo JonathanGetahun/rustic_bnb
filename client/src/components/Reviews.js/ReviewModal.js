@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import moment from 'moment';
 
 import '../../styling/review.css';
-import { updateReviews } from '../../actions/review_actions';
+import { postReview } from '../../services/reviewServices'
 
 // const StyledTitle = withStyles({
 //       root: {
@@ -26,7 +26,15 @@ export default function FormDialog(id) {
   const [value, setValue] = useState(5);
   const [text, setText] = useState("");
 
-  let today = moment().format('MMMM Do YYYY')
+  // let accuracy;
+  // let communication;
+  // let cleanliness;
+  // let locationReview;
+  // let checkIn;
+  // let value;
+
+
+  let today = moment()
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -37,8 +45,9 @@ export default function FormDialog(id) {
     setOpen(false);
   };
 
-  const handleSubmit = () => {
-    updateReviews({
+  const handleSubmit = async function () {
+    
+    await postReview({
       accuracy: accuracy,
       communication: communication,
       cleanliness: cleanliness,
@@ -48,7 +57,7 @@ export default function FormDialog(id) {
       text: text,
       reviewDate: today,
       id: id
-    })
+    });
     setOpen(false);
   }
 
@@ -68,7 +77,7 @@ export default function FormDialog(id) {
         <div className="rating-container">
             <Typography component="legend">Accuracy</Typography>
                 <Rating
-                    name="simple-controlled"
+                    name="accuracy"
                     value={accuracy}
                     onChange={(event, newValue) => {
                     setAccuracy(newValue);
@@ -77,7 +86,7 @@ export default function FormDialog(id) {
 
             <Typography component="legend">Communication</Typography>
                 <Rating
-                    name="simple-controlled"
+                    name="communication"
                     value={communication}
                     onChange={(event, newValue) => {
                     setCommunication(newValue);
@@ -85,7 +94,7 @@ export default function FormDialog(id) {
                 />
             <Typography component="legend">Cleanliness</Typography>
                 <Rating
-                    name="simple-controlled"
+                    name="cleanliness"
                     value={cleanliness}
                     onChange={(event, newValue) => {
                     setCleanliness(newValue);
@@ -94,7 +103,7 @@ export default function FormDialog(id) {
 
             <Typography component="legend">Location</Typography>
                 <Rating
-                    name="simple-controlled"
+                    name="location"
                     value={locationReview}
                     onChange={(event, newValue) => {
                     setLocationReview(newValue);
@@ -102,7 +111,7 @@ export default function FormDialog(id) {
                 />
             <Typography component="legend">Check-In</Typography>
                 <Rating
-                    name="simple-controlled"
+                    name="checkin"
                     value={checkIn}
                     onChange={(event, newValue) => {
                     setCheckIn(newValue);
@@ -111,7 +120,7 @@ export default function FormDialog(id) {
 
             <Typography component="legend">Value</Typography>
                 <Rating
-                    name="simple-controlled"
+                    name="value"
                     value={value}
                     onChange={(event, newValue) => {
                     setValue(newValue);

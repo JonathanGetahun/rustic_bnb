@@ -7,6 +7,10 @@ function ViewLogin({open}) {
 
     const [showLogin, setLogin ] = useState(false);
     const [showSignUp, setSignUp] = useState(false)
+    
+    if (showSignUp){
+        console.log("Sign Up Success")
+    }
 
     useEffect(() => {
         setLogin(open)

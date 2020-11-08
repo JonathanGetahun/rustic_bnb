@@ -1,13 +1,13 @@
 import axios from 'axios'
 
-let token = null;
+// let token = null;
 
-const setToken = newToken => {
-    token = `bearer ${newToken}`
-}
+// const setToken = newToken => {
+//     token = `bearer ${newToken}`
+// }
 
 const loginUser = async credentials => {
-    console.log("credentials received", credentials)
+   
     const response = await axios.post('/login', credentials)
     return response.data
 }

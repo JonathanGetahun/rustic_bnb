@@ -23,6 +23,7 @@ function Slider( {img}) {
 
     useEffect(() => {
         async function fetchData(){
+            // eslint-disable-next-line
             listed = await listLocation().then(data => data.data)
             changeURL(url.concat(listed))
         }

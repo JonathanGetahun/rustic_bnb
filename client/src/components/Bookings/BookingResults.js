@@ -1,12 +1,8 @@
 import React from 'react'
 import '../../styling/bookingResults.css'
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
-import StarIcon from "@material-ui/icons/Star"
 import Slider from '../Slider'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
-import { Button } from "@material-ui/core"
-
 import ReviewModal from '../Reviews.js/ReviewModal'
 import { deleteBooking } from '../../services/bookingServices'
 import { useSelector } from 'react-redux'
@@ -32,7 +28,7 @@ function BookingResults({
 
     let today = moment().format('YYYY-MM-DD')
     let adjStartDate = moment(startDate).format('YYYY-MM-DD')
-    console.log("ORDERING", adjStartDate)
+    
 
     if (moment(today).isBefore(adjStartDate)){
         cancel = true;
@@ -52,12 +48,12 @@ function BookingResults({
       
         //  <div className="searchResult" style={{ display: (show ? 'flex' : 'none') }} >
         <div className="result">
-        <Link to={{pathname: `/search/2`}} style={{ textDecoration: 'none', color: 'black' }}>
+        <Link to={{pathname: `/search/${id}`}} style={{ textDecoration: 'none', color: 'black' }}>
         <div className="bookingResults" >
             {/* <img src={img} alt="" /> */}
             
             <Slider img={img}/>
-            {console.log("THE ID IS ", id )}
+            
             {/* {cancel 
                 ? <Button 
                     className="booking_button" 

@@ -1,18 +1,18 @@
-import React, { useEffect, useRef, useState, useContext } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchListings, updateLocation, updateDisplay } from '../actions/listing_actions'
+import { fetchListings, updateDisplay } from '../actions/listing_actions'
   
 
 
 export default function GoogleMap() {
     const dispatch = useDispatch()
 
-    
+    //added dispatch for eslint
     useEffect(() => {
         dispatch(fetchListings())
-    }, [])
+    }, [dispatch])
     
-   const list = useSelector(state => state.list)
+
    const originalList = useSelector(state => state.list)
 
 
@@ -20,10 +20,7 @@ export default function GoogleMap() {
     const [map, setMap] = useState(null)
 
     let markers = [];
-    // // const {list } = useContext(ShowList)
-    // const { toggleList } = useContext(ToggleList)
-    // const {toggleListVal} = useContext(ToggleList)
-    // var myLatLng = 
+
 
 
     useEffect(() => {
@@ -38,11 +35,11 @@ export default function GoogleMap() {
             script.addEventListener('load', onLoad)
             return () => script.removeEventListener('load', onLoad)
             
-            return
+            
         } else {
             onLoad()
             }  
-            console.log("finished")
+           
     }, [])
 
     if(map){
@@ -52,7 +49,7 @@ export default function GoogleMap() {
             var pinIcon = {
                 url: `https://chart.googleapis.com/chart?chst=d_bubble_icon_text_small&chld=snack|bb|$${link.Price}|FFBB00|000000`
             };
-            const marker = new window.google.maps.Marker({
+            new window.google.maps.Marker({
               map,
               position: newLocation,
             //   label: `$${link.Price}`,
@@ -84,23 +81,15 @@ export default function GoogleMap() {
              if(markers){
                  new window.google.maps.event.addListener(map, 'bounds_changed',  function() {
                     let bounds = map.getBounds()
-                
-                    
-                        console.log('markers', markers)
                          markers.map( (marker) => {
-                            
-                           console.log('entering', markers)
                             if((bounds.contains(marker)) === false ){
-    
                                 displayCheck.push(false)
                             } else {
                                 displayCheck.push(true)
                             }
-    
-                            
-                            
+                            return displayCheck;
                         })
-                        console.log('?',displayCheck)
+                        
                         dispatch(updateDisplay(displayCheck))
                         displayCheck=[]
                         
@@ -113,7 +102,7 @@ export default function GoogleMap() {
         }
         // console.log("after", displayCheck)
         // displayCheck=[]
-        
+        // eslint-disable-next-line
     }, [map])
 
  

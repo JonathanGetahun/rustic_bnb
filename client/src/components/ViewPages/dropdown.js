@@ -21,7 +21,7 @@ class Dropdown extends React.Component {
 
     toggleDropdownBlur(e) {
         if (this.state.open === true) {
-            if (e.relatedTarget === null || (e.relatedTarget.className != "hoopersnavbarDiv" && e.relatedTarget.className != "hoopersChange")) {
+            if (e.relatedTarget === null || (e.relatedTarget.className !== "hoopersnavbarDiv" && e.relatedTarget.className !== "hoopersChange")) {
                 this.setState({ open: !this.state.open });
             }
         }
@@ -47,7 +47,6 @@ class Dropdown extends React.Component {
         }
         let minusDisabled = "minusDisabled";
         if (this.state.guests > 1) {
-            console.log("works here")
             minusDisabled = "minusAbled";
         }
 

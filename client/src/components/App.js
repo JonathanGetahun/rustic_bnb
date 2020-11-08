@@ -7,7 +7,7 @@ import Header from './Header'
 import Footer from './Footer'
 import SearchPage from './SearchPage'
 import Start from './Start'
-import Example from './example'
+// import Example from './example'
 import ViewPage from './ViewPages/viewPage'
 import Bookings from './Bookings/Bookings'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -22,7 +22,7 @@ function App() {
     if(getCurrentUser()){
       dispatch(loggedIn())
     }
-  }, [])
+  }, [dispatch])
 
   return (
   
@@ -30,25 +30,27 @@ function App() {
     <div className="App">
 
     <Router>
-      <Header />
+      
       <Switch>
       <Route path="/users/:id">
+        <Header />
           <Bookings />
         </Route>
-        <Route path="/search/list">
+        {/* <Route path="/search/list">
           <Example />
-        </Route>
+        </Route> */}
         <Route path="/search/:id" component={ViewPage} />
         {/* <Route path="/search/:id" render={(props) => <ViewPage {...props}/>}> */}
         
          <Route path="/search">
+         <Header />
           <SearchPage />
          </Route>
 
          <Route path ="/home">
+         <Header />
           <Home />
          </Route>
-
          <Route path = "/">
            <Start />
          </Route>

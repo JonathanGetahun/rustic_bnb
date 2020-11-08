@@ -1,4 +1,4 @@
-import { RECEIVE_REVIEW, POST_REVIEW} from '../actions/types';
+import { POST_REVIEW} from '../actions/types';
 
 
 const initialState = [];

@@ -26,18 +26,18 @@ export default function ViewMap({lat, lng}) {
             script.addEventListener('load', onLoad)
             return () => script.removeEventListener('load', onLoad)
             
-            return
+            
         } else {
             onLoad()
             }  
-            console.log("finished")
-    }, [])
+            
+    }, [lat, lng])
 
     if(map){
         
             
             const newLocation = new window.google.maps.LatLng(lat, lng)
-            const marker = new window.google.maps.Marker({
+             new window.google.maps.Marker({
               map,
               position: newLocation,
               title: "Book",

@@ -29,15 +29,15 @@ export const fetchListings = () => dispatch => (
 
 export const updateDisplay =  (display) => async (dispatch) => {
     const originalList = store.getState().originalList
-    console.log('OG',originalList)
-    console.log('sent-display', display)
+
+    // eslint-disable-next-line
     let newLocations = await originalList.filter((og, i) => {
+        
         if(display[i]){
-            console.log('reacghing',display[i])
             return og
         }
+
     })
-    console.log('newOG', newLocations)
     dispatch(receiveDisplay(newLocations))
     
 }

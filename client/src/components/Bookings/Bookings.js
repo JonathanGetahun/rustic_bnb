@@ -32,7 +32,8 @@ function Bookings() {
         }
         getBook()
         
-       console.log("made it here", url, user)
+       
+       // eslint-disable-next-line
     }, [] )
 
     if(!user) {
@@ -49,7 +50,7 @@ function Bookings() {
             </div>
         
         bookings = user.data.bookings
-  console.log(bookings)
+  
      bookingList = bookings.map((data,i) => {
        
         //get Id from server/update mongo so that you can link back to search page
@@ -64,7 +65,6 @@ function Bookings() {
                    endDate={data.endDate}
                    price={`$${data.Price}`}
                    id={data.id}
-                   amenities={data.amenities}
                    bookingId={data._id}
                    
                 //    show={data.display}

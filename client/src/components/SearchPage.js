@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import '../styling/searchPage.css'
 import { Button } from '@material-ui/core'
 import Listings from './Listings'
@@ -31,7 +31,7 @@ const SearchPage = () =>{
                 
                 <ul className='searchPage_listings'>
                     <li className='searchPage_item'>
-    {list.length ==0 ? <h1> No listings in area, try adjusting your search with zoom or refreshing...</h1> : <Listings />} 
+    {list.length === 0 ? <h1> No listings in area, try adjusting your search with zoom or refreshing...</h1> : <Listings />} 
                     </li>
                 </ul>
                 </div>

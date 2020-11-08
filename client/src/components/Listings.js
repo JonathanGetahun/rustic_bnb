@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import SearchResults from './SearchResults'
 import '../styling/searchResults.css'
 import '../styling/searchPage.css'
@@ -32,16 +32,15 @@ import { useDispatch, useSelector } from 'react-redux'
 const dispatch = useDispatch()
 
     
-   
+   //added dispatch dependency for eslint
     useEffect(() => {
         dispatch(fetchListings())
-    }, [])
+    }, [dispatch])
     
     let placeList;
    const list = useSelector(state => state.list)
 
-   console.log(list)
-    console.log("props:",list)
+ 
     if(!list) return <div>loading..</div> 
     else {
      placeList = list.map((data,i) => {
@@ -57,7 +56,6 @@ const dispatch = useDispatch()
                    price={`$${data.Price}`}
                    id={data.id}
                    host={data.host}
-                   amenities={data.amenities}
                    locationTag={data.locationTag}
                 //    show={data.display}
                />
