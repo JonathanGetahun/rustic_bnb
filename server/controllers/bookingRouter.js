@@ -13,8 +13,8 @@ bookingRouter.get('/:id', async(req, res) => {
         console.log("made it here", user)
         res.json(user)
     })
-
-    console.log("user? ", user)
+    return res.json(user)
+    
 })
 
 

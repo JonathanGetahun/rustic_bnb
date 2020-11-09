@@ -28,7 +28,7 @@ function Bookings() {
         async function getBook(){
             
             info  = await getBookings(url)
-            // console.log("info", info)
+            console.log("info", info)
             setUser(info)
            
         }
