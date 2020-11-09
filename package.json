@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "vacation rental marketplace for outdoor lodging",
   "main": "index.js",
+  "engines": {
+    "node": "12.16.3"
+  },
   "scripts": {
     "start": "node server/index.js",
     "dev": "nodemon server/index.js",
