@@ -6,10 +6,8 @@ const mongoose = require('mongoose')
 
 bookingRouter.get('/:id', async(req, res) => {
     body=req.params;
-    console.log("this is ", body)
     const user = await User.findById(body.id, function (err, user) {
         if (err) {
-            console.log("didnt end up working")
             res.send("user & booking not found", err)
         }
         console.log("made it here", user)
@@ -41,7 +39,7 @@ bookingRouter.post('/', async (req, res) => {
         user: user, 
         id: body.id
     }).save()
-    console.log(booking)
+    
 
     //Has to be updated not on the instance but on the model itself
     await User.findOneAndUpdate({email: body.email}, {
@@ -61,14 +59,6 @@ bookingRouter.delete('/', async(req, res) => {
 
     res.status(200).json(deleted)
 })
-
-
-
-
-
-
-
-
 
 
 module.exports = bookingRouter

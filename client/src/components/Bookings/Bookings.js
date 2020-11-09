@@ -26,7 +26,9 @@ function Bookings() {
     useEffect(() => {
         let info;
         async function getBook(){
+            
             info  = await getBookings(url)
+            console.log("info", info)
             setUser(info)
            
         }

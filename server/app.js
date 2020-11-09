@@ -22,13 +22,15 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/goFindList', listRouter)
+app.use('/consumers', bookingRouter)
 
 app.use(express.static(path.join(__dirname, 'build')))
 app.get('*', function(req,res){
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
+
 app.use('/login', loginRouter)
-app.use('/users', bookingRouter)
+
 app.use('/home', s3Router)
 app.use('/', signupRouter)
 
