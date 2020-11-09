@@ -39,7 +39,7 @@ function App() {
         {/* <Route path="/search/list">
           <Example />
         </Route> */}
-        <Route path="/search/:id" component={ViewPage} />
+        <Route path="/search/:id" component={() => (<div><Header /><ViewPage /></div>)} />
         {/* <Route path="/search/:id" render={(props) => <ViewPage {...props}/>}> */}
         
          <Route path="/search">

@@ -26,7 +26,7 @@ export default function GoogleMap() {
     useEffect(() => {
         const onLoad = () => setMap(new window.google.maps.Map(ref.current, {
             zoom: 4,
-            gestureHandling: 'greedy',
+            // gestureHandling: 'greedy',
             center: new window.google.maps.LatLng(39.642567,-110.387054)}))
         if(!window.google){
             const script = document.createElement('script')
@@ -42,7 +42,10 @@ export default function GoogleMap() {
            
     }, [])
 
+
+
     if(map){
+        
         originalList.forEach((link, index) => {
             
             const newLocation = new window.google.maps.LatLng(link.locationTag[0].lat, link.locationTag[0].lng)
@@ -64,7 +67,7 @@ export default function GoogleMap() {
             //   event.preventDefault()
             // })
           })
-
+          
         // USED FOR ADDING LATLNG LOCATION INTO LIST ARRAY STATE
         //   dispatch(updateLocation)
           
@@ -81,15 +84,17 @@ export default function GoogleMap() {
              if(markers){
                  new window.google.maps.event.addListener(map, 'bounds_changed',  function() {
                     let bounds = map.getBounds()
+                    
                          markers.map( (marker) => {
                             if((bounds.contains(marker)) === false ){
                                 displayCheck.push(false)
                             } else {
                                 displayCheck.push(true)
                             }
+                            
                             return displayCheck;
                         })
-                        
+                       
                         dispatch(updateDisplay(displayCheck))
                         displayCheck=[]
                         

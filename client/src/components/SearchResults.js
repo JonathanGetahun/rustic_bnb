@@ -47,6 +47,7 @@ function SearchResults({
                     <h3>{title}</h3>
                     <p>_____</p>
                     <p>{location}</p>
+                    {/* {console.log(amenities)} */}
                     <p>{`${amenities[0]} · ${amenities[1]} · ${amenities[2]} · ${amenities[3]}`}</p>
                 </div>
 

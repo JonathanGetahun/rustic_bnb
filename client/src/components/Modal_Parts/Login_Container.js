@@ -1,6 +1,6 @@
 import React from 'react';
 import './loginContent.css';
-// import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 import { Button, 
   TextField, 
@@ -68,7 +68,7 @@ function LoginContent(props) {
 
   const { open, setLogin, setSignUp } = props;
 
-  // const history = useHistory();
+  const history = useHistory();
 
   const switchSignup = (event) => {
     setLogin(false)
@@ -133,7 +133,7 @@ function LoginContent(props) {
 
               dispatch(fetchUser(values))
               loginSuccess()
-              // history.push('/home')
+              history.push('/home')
               // history.go(0)
             }catch(e){
               console.error("NOPE",e.message)

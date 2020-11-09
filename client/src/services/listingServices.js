@@ -7,7 +7,7 @@ const refreshLocation = () => {
 
 //this one for the actual list
 const listLocation = async () => {
-    const response = await axios.get('/search')
+    const response = await axios.get('/goFindList')
     
     //try response.data next time
     return response

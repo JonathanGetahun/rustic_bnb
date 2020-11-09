@@ -42,7 +42,7 @@ function Start() {
         <input type="text" placeholder="anywhere" />
         
         <ArrowForwardIcon onClick={() => {
-                history.push('/search')
+                history.push('/home')
                 history.go(0)}}
             className="arrow" fontSize="large"/>  
         

@@ -44,7 +44,7 @@ const dispatch = useDispatch()
     if(!list) return <div>loading..</div> 
     else {
      placeList = list.map((data,i) => {
-
+        // console.log("data", data)
         return <SearchResults
                    key={i}
                    img={data.images}
