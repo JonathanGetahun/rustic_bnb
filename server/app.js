@@ -28,7 +28,7 @@ app.get('*', function(req,res){
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
 app.use('/login', loginRouter)
-app.use('/customers', bookingRouter)
+app.use('/users', bookingRouter)
 app.use('/home', s3Router)
 app.use('/', signupRouter)
 

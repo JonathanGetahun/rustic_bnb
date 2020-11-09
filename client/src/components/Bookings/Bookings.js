@@ -50,7 +50,7 @@ function Bookings() {
             </div>
         
         bookings = user.data.bookings
-  
+        console.log("user", user)
      bookingList = bookings.map((data,i) => {
        
         //get Id from server/update mongo so that you can link back to search page

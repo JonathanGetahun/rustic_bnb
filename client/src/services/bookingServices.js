@@ -2,13 +2,13 @@ import axios from 'axios';
 
 
 export const createBooking = (bookingData) => {
-    const response = axios.post('/customers', bookingData);
+    const response = axios.post('/users', bookingData);
     console.log("NEW BOOKING:",response)
     return response
 }
 
 export const getBookings = (id) => {
-    const response = axios.get(`/customers/${id}`)
+    const response = axios.get(`/users/${id}`)
     return response
 }
 
@@ -17,7 +17,7 @@ export const deleteBooking = (email, bookingObjId) => {
         , email, bookingObjId)
     // const response =  axios.delete(`/users`, 
     //     {userId: email, bookingId: bookingObjId})
-    let url = '/customers';
+    let url = '/users';
     let data = {userId: email,
         bookingId: bookingObjId}
 
