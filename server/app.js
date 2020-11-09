@@ -14,14 +14,8 @@ const reviewRouter = require('./controllers/reviewRouter')
 const path = require('path')
 
 const MONGO_URI = process.env.MONGODB_URI
-if (app.get('env') === 'production') {
-    mongoose.connect(MONGODB_URI
-        , {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false}).then(() => console.log("connected to MongoDB")).catch(err => console.error(err))
-} else {
-    mongoose.connect(MONGO_URI
-        , {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false}).then(() => console.log("connected to MongoDB")).catch(err => console.error(err))
-}
-
+mongoose.connect(MONGO_URI
+    , {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false}).then(() => console.log("connected to MongoDB")).catch(err => console.error(err))
 
 
 app.use(cors())
