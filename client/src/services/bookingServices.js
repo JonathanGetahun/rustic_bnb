@@ -8,6 +8,8 @@ export const createBooking = (bookingData) => {
 }
 
 export const getBookings = async (id) => {
+    console.log(id);
+    debugger;
     const response = await axios.get(`/api/consumers/${id}`)
     return response
 }
@@ -16,8 +18,10 @@ export const deleteBooking = (email, bookingObjId) => {
     // const response =  axios.delete(`/users`, 
     //     {userId: email, bookingId: bookingObjId})
     let url = '/api/consumers';
-    let data = {userId: email,
-        bookingId: bookingObjId}
+    let data = {
+        userId: email,
+        bookingId: bookingObjId
+    }
 
     const response = axios.request({
         method: 'delete',
