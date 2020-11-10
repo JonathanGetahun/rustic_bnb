@@ -3,13 +3,10 @@ import axios from 'axios';
 
 export const createBooking = (bookingData) => {
     const response = axios.post('/api/consumers', bookingData);
-    console.log("NEW BOOKING:",response)
     return response
 }
 
 export const getBookings = async (id) => {
-    console.log(id);
-    debugger;
     const response = await axios.get(`/api/consumers/${id}`)
     return response
 }

@@ -8,13 +8,12 @@ bookingRouter.get('/:id', async(req, res) => {
     body=req.params;
     const user = await User.findById(body.id, function (err, user) {
         if (err) {
-            res.send("user & booking not found", err)
+            res.status(400).send("user and booking not found")
         }
         console.log("made it here", user)
         res.json(user)
     })
-    return res.json(user)
-    
+ 
 })
 
 

@@ -13,7 +13,12 @@ function Bookings() {
     //to send as req param and get back bookings
     // let par = window.location.href
     // let url = par.substring(28)
-    
+
+
+    //A hacky way to get the User Id
+    let urlSplit = window.location.href.split('/')
+    // console.log("dis", urlSplit[urlSplit.length - 1])
+    let urlId = urlSplit[urlSplit.length - 1]
     
     let bookingList;
     let heading;
@@ -21,13 +26,13 @@ function Bookings() {
 
     const history = useHistory()
     
-    
+   
     useEffect(() => {
         let info;
         async function getBook(){
-            
-            info  = await getBookings(state.id)
-            console.log("info", info)
+
+            info  = await getBookings(urlId)
+
             setUser(info)
            
         }
