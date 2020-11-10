@@ -11,6 +11,7 @@ import SignUpContent from './Modal_Parts/SignUp_Container'
 import { useDispatch, useSelector } from 'react-redux'
 import { logoutUser } from '../actions/user_actions'
 import { useHistory } from 'react-router-dom'
+import proPic from '../styling/rustic_user_pic.jpeg'
 
 
 function Header() {
@@ -41,6 +42,7 @@ function Header() {
             setUser(true)
             
         }
+        
     }, [logged])
 
     // useEffect(() => {
@@ -106,7 +108,11 @@ function Header() {
                 aria-haspopup="true"
                 onClick={handleMenu}
                 >
-                    <Avatar />
+                  
+                  {logged.email === 'demo4u@gmail.com' 
+                    ? <Avatar alt="user" src={proPic}/> 
+                    : <Avatar/>}
+                    
                 </IconButton>
                 <Menu
                 id="menu-appbar"
@@ -136,7 +142,7 @@ function Header() {
                 aria-haspopup="true"
                 onClick={handleMenu}
                 >
-                    <Avatar />
+                    <Avatar  />
                 </IconButton>
                 <Menu
                 id="menu-appbar"
