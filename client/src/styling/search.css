@@ -18,14 +18,14 @@
     background-color: white;
     top:325px;
     left:32%;
-    width:559px;
+    width:539px;
     position: absolute;
     padding: 10px;
 
 }
 
 .search > input {
-    width: 539px;
+    width: 519px;
     padding: 20px;
     position: absolute;
     left: 32vw;
@@ -45,7 +45,7 @@
     text-transform: inherit !important;
     background-color:green;
     color: white;
-    width: 579px;
+    width: 560px;
   }
 
 .search > button:hover {
