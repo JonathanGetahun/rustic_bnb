@@ -8,14 +8,14 @@ import axios from 'axios'
 
 const loginUser = async credentials => {
    
-    const response = await axios.post('/login', credentials)
+    const response = await axios.post('/api/login', credentials)
     return response.data
 }
 
 
 const signUpUser = async ( userData ) => {
     try {
-        const res = await axios.post('/', userData);
+        const res = await axios.post('/api/', userData);
         return res.data;
     } catch (e) {
         throw new Error(`status ${e.response.status}: ${e.response.data.error}`)

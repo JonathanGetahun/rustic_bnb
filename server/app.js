@@ -21,25 +21,20 @@ mongoose.connect(MONGO_URI
 app.use(cors())
 app.use(express.json())
 
-app.use('/goFindList', listRouter)
-app.use('/consumers', bookingRouter)
+app.use('/api/goFindList', listRouter)
+app.use('/api/consumers', bookingRouter)
+app.use('/api/login', loginRouter)
+
+app.use('/api/home', s3Router)
+app.use('/api/review', reviewRouter)
+
+app.use('/api/', signupRouter)
 
 app.use(express.static(path.join(__dirname, 'build')))
 app.get('*', function(req,res){
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
 
-app.use('/login', loginRouter)
-
-app.use('/home', s3Router)
-app.use('/', signupRouter)
-
-
-
-
-
-
-app.use('/review', reviewRouter)
 
 if(app.get('env') === 'development'){
     app.use(morgan('tiny'))

@@ -34,7 +34,7 @@ function App() {
       <Switch>
       <Route path="/users/:id">
         <Header />
-          <Bookings />
+        <Bookings />
         </Route>
         {/* <Route path="/search/list">
           <Example />
