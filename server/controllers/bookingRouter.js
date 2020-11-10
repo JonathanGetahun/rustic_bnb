@@ -10,7 +10,7 @@ bookingRouter.get('/:id', async(req, res) => {
         if (err) {
             res.status(400).send("user and booking not found")
         }
-        console.log("made it here", user)
+        
         res.json(user)
     })
  
@@ -51,7 +51,7 @@ bookingRouter.post('/', async (req, res) => {
 bookingRouter.delete('/', async(req, res) => {
     body = req.body
 
-    console.log("body will not work", body)
+    
     var id = mongoose.Types.ObjectId(body.bookingId)
     const deleted = await User.updateOne({email: body.userId},
         {$pull: {'bookings': {'_id':id}}}, {safe: true, multi: true})

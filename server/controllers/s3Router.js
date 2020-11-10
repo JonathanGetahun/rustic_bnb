@@ -90,7 +90,7 @@ router.get('/', async(req,res) => {
         }
         
         getImage();
-        console.log("hello")
+        
     
 })
 

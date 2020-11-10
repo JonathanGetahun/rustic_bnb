@@ -348,7 +348,7 @@ render(){
                                 startDate={this.state.startDate}
                                 startDateId="mm/dd/yyyy"
                                 endDate={this.state.endDate}
-                                endDateId="mm/dd/yyyy"
+                                endDateId="dd/mm/yyyy"
                                 onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
                                 focusedInput={this.state.focusedInput}
                                 onFocusChange={focusedInput => this.setState({ focusedInput })}
