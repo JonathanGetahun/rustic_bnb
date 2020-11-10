@@ -5,15 +5,14 @@ import BookingResults from './BookingResults'
 import '../../styling/bookings.css'
 import { useHistory } from 'react-router-dom'
 
-
 function Bookings() {
 
     const [user, setUser] = useState(null)
     const state = useSelector(state => state.user)
     //using the objectId from the url 
     //to send as req param and get back bookings
-    let par = window.location.href
-    let url = par.substring(28)
+    // let par = window.location.href
+    // let url = par.substring(28)
     
     
     let bookingList;
@@ -27,7 +26,7 @@ function Bookings() {
         let info;
         async function getBook(){
             
-            info  = await getBookings(url)
+            info  = await getBookings(state.id)
             console.log("info", info)
             setUser(info)
            
