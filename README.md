@@ -10,9 +10,9 @@ rustic_bnb is geared for travellers looking to escape the day to day, that are a
 
 1.React/Redux.<br> 
 2.Express.<br> 
-3.Mongoose/MongoDB <br> 
+3.Mongoose/MongoDB. <br> 
 4.HTML/CSS. <br>
-5.Amazon Web Services  
+5.Amazon Web Services.  
 6.Google Maps API. <br>
 
 ## Key Features
