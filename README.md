@@ -157,6 +157,10 @@ bookingRouter.delete('/', async(req, res) => {
     const value = totalReveiew(listing.value)
 ```
 
+## Future Direction
+- Update for mobile use
+- Add host posting feature
+
 
 
                     
