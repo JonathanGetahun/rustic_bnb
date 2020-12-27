@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import '../styling/search.css';
+import '../../styling/search.css';
 //main style file
 import 'react-date-range/dist/styles.css';
 //theme css file

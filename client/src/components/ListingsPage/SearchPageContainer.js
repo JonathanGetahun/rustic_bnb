@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import SearchPage from './SearchPage';
-import { fetchListings } from '../actions/listing_actions'
+import { fetchListings } from '../../../actions/listing_actions'
 import { withRouter } from 'react-router-dom';
 
 

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import { listLocation } from '../services/listingServices'
-import '../styling/Slider.css'
+import { listLocation } from '../../services/listingServices'
+import '../../styling/Slider.css'
 import Carousel from 'nuka-carousel'
 
 
@@ -11,15 +11,6 @@ function Slider( {img}) {
 
     let listed;
 
-    // useEffect(() => {
-    //     //React doesnt want the entire useEffect function to be async,
-    //     //you need to write your async function inside so it doesn't give you a warning
-    //     async function fetchData(){
-    //         listed = await listLocations().then(data => data.data)
-    //         changeURL(url.concat(listed))
-    //     }
-    //     fetchData()
-    // }, [])
 
     useEffect(() => {
         async function fetchData(){
@@ -33,9 +24,6 @@ function Slider( {img}) {
     
     return (
         <div className="Slider-Container">
-            {/* <button className="Slider-prev">Prev</button>
-            <img src={url[0]} alt="JJ" height="250" widht="200"/>
-            <button className="Slider-next">Next</button> */}
 
 
         {/*has pagination when scrolling through at the bottom*/}

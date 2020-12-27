@@ -2,12 +2,11 @@ import React, { useEffect } from 'react';
 import '../styling/App.css';
 
 
-import Home from './Home'
+import Home from './HomePage/Home'
 import Header from './Header'
 import Footer from './Footer'
-import SearchPage from './SearchPage'
+import SearchPage from './ListingsPage/SearchPage'
 import Start from './Start'
-// import Example from './example'
 import ViewPage from './ViewPages/viewPage'
 import Bookings from './Bookings/Bookings'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -36,11 +35,8 @@ function App() {
         <Header />
         <Bookings />
         </Route>
-        {/* <Route path="/search/list">
-          <Example />
-        </Route> */}
+
         <Route path="/search/:id" component={() => (<div><Header /><ViewPage /></div>)} />
-        {/* <Route path="/search/:id" render={(props) => <ViewPage {...props}/>}> */}
         
          <Route path="/search">
          <Header />

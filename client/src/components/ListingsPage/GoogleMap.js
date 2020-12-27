@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchListings, updateDisplay } from '../actions/listing_actions'
+import { fetchListings, updateDisplay } from '../../actions/listing_actions'
   
 
 
@@ -63,13 +63,8 @@ export default function GoogleMap() {
            
             markers.push(newLocation)
             
-            // marker.addListener(`click`, (event)=> {
-            //   event.preventDefault()
-            // })
           })
           
-        // USED FOR ADDING LATLNG LOCATION INTO LIST ARRAY STATE
-        //   dispatch(updateLocation)
           
     }    
 
@@ -105,8 +100,6 @@ export default function GoogleMap() {
                     }
             
         }
-        // console.log("after", displayCheck)
-        // displayCheck=[]
         // eslint-disable-next-line
     }, [map])
 

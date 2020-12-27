@@ -1,8 +1,8 @@
 import React from 'react'
-import '../styling/home.css'
+import '../../styling/home.css'
 import Card from './Card'
 import Banner from './Banner'
-import { refreshLocation } from '../services/listingServices'
+import { refreshLocation } from '../../services/listingServices'
 import { Link } from 'react-router-dom'
 
 function Home() {

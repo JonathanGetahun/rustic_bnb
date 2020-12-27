@@ -65,14 +65,7 @@ function Start() {
             <SignUpContent open={showSignUp} setSignUp={setSignUp} setLogin={setLogin} />
         </div>
         <div>
-        {/* <Button
-            fullWidth
-            variant="contained"
-            color="primary"
-            onClick={(e) => handleLogin(e)}
-          >
-            Demo Login
-          </Button> */}
+
         </div>
         </div>
         </div>

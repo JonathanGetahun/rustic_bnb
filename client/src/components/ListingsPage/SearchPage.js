@@ -1,14 +1,11 @@
 import React from 'react'
-import '../styling/searchPage.css'
+import '../../styling/searchPage.css'
 import { Button } from '@material-ui/core'
 import Listings from './Listings'
 import GoogleMap from './GoogleMap'
 
 import {useSelector} from 'react-redux'
 
-
-// import ShowListProvider from '../context/ShowList'
-// import ToggleListProvider from '../context/ToggleList'
 
 
 const SearchPage = () =>{
@@ -48,33 +45,6 @@ const SearchPage = () =>{
         </div>
     )
 }
-
-// const linksFromSomewhere = list.map((data) => {
-//   return {
-//     coords: data.locationTag,
-//     title: data.locationName
-//   }
-// })
-
-// const mapProps = {
-//   onMount: addMarkers,
-//   onMountProps: linksFromSomewhere
-// }
-
-
-// function addMarkers(map, links){
-//   links.forEach((link, index) => {
-//     const marker = new window.google.maps.Marker({
-//       map,
-//       position: link.coords,
-//       label: `${index+1}`,
-//       title: link.title,
-//     })
-//     marker.addListener(`click`, ()=> {
-//       window.location.href = link.url
-//     })
-//   })
-// }
 
 
 export default SearchPage

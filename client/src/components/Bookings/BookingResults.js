@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../styling/bookingResults.css'
-import Slider from '../Slider'
+import Slider from '../ListingsPage/Slider'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 import ReviewModal from '../Reviews.js/ReviewModal'

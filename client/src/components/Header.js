@@ -45,12 +45,6 @@ function Header() {
         
     }, [logged])
 
-    // useEffect(() => {
-    //   if(!logged.logged) {
-    //     setUser(false)
-    //     console.log("reached?")
-    //   }
-    // }, [logged])
   
 
     const handleMenu = (event) => {

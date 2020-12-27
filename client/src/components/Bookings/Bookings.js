@@ -9,10 +9,6 @@ function Bookings() {
 
     const [user, setUser] = useState(null)
     const state = useSelector(state => state.user)
-    //using the objectId from the url 
-    //to send as req param and get back bookings
-    // let par = window.location.href
-    // let url = par.substring(28)
 
 
     //A hacky way to get the User Id
@@ -73,7 +69,6 @@ function Bookings() {
                    id={data.id}
                    bookingId={data._id}
                    
-                //    show={data.display}
                />
     })
 }

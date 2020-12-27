@@ -20,11 +20,10 @@ import { DateRangePicker, DayPickerRangeController } from 'react-dates';
 import { START_DATE, END_DATE } from 'react-dates/src/constants';
 import 'react-dates/lib/css/_datepicker.css';
 import './datepicker_override_show.css'
-// import DatePicker from './datepicker'
 
 import { withRouter } from 'react-router-dom';
 import ViewLogin from './viewLogin'
-// import LoginContent from '../Modal_Parts/Login_Container'
+
 import { getCurrentUser } from '../../services/userServices'
 import { fetchListings } from '../../actions/listing_actions'
 import { loggedIn } from '../../actions/user_actions'
@@ -88,7 +87,6 @@ class ViewPage extends React.Component {
 
 
     handleLoginClick(e) {
-        // e.preventDefault();;
         this.setState({
             showLogin: !this.state.showLogin
         })
@@ -126,9 +124,7 @@ class ViewPage extends React.Component {
 render(){
     const listing = this.props.originalList[this.props.match.params.id];
     const user = getCurrentUser();
-        
-        // user === null && console.log("logged out")
-        // user !== null && console.log("logged in")
+
     if(!listing) { 
         return <div></div>
     }
@@ -328,21 +324,7 @@ render(){
                             </div>
                         </div>
                         <div className="booking-dates">
-                            {/* <DateRangePicker
-                                startDate={startDate}
-                                startDateId="mm/dd/yyyy"
-                                endDate={endDate}
-                                endDateId="mm/dd/yyyy"
-                                onDatesChange={({ startDate, endDate }) => changeDate({ startDate, endDate })}
-                                focusedInput={focusedInput}
-                                onFocusChange={focusedInput => changeFocus({ focusedInput })}
-                                numberOfMonths={1}
-                                hideKeyboardShortcutsPanel={true}
-                                startDatePlaceholderText="Check-in"
-                                endDatePlaceholderText="Check-out"
-                                block={true}
-                                noBorder={false}
-                            /> */}
+
                             {/* <DatePicker /> */}
                             <DateRangePicker
                                 startDate={this.state.startDate}
@@ -377,8 +359,6 @@ render(){
 }
 const msp = (state, ownProps) => {
     return ({
-        // currentUser: state.entities.users[state.session.id],
-        // arena: state.entities.arenas[ownProps.match.params.arenaId]
         originalList: state.originalList,
         user: state.user
     });
@@ -386,8 +366,6 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => {
     return ({
-        // openModal: modal => dispatch(openModal(modal)),
-        // createBooking: booking => dispatch(createBooking(booking)),
         fetchListings: () => dispatch(fetchListings())
     });
 }
