@@ -15,11 +15,21 @@ rustic_bnb is geared for travellers looking to escape the day to day, that are a
 5.Amazon Web Services.  
 6.Google Maps API. <br>
 
+•   Improved efficiency of database by using AWS S3 buckets for storage of images, ensured content 
+     security through AWS IAM and pre-signed URLs.   
+•   Incorporated React-Redux container, used front-end state management procedures with multiple 
+     components to ensure scalability and optimization.  
+•   Implemented Google Maps API for dynamic rendering of listings using geolocation.  
+•   Established user authentication and authorization using JWT and password hashing with bcrypt.  
+•   Used mongoose for schema validation and CRUD implementation involving one-to-many 
+     relationships with document references.   
+
+
 ## Key Features
 #### User Authentication 
-* Users can sign up or log in with an existing account.  
-* Invalid logins or incorrect signup requests will prompt validation errors on both the frontend and the backend.  
-* Certain features of the web app will be blocked if users are not logged in, feature implemented using jsonwebtoken.
+* Users can sign up or log in with an existing account.    
+* Invalid logins or incorrect signup requests will prompt validation errors on both the frontend and the backend.    
+* Certain features of the web app will be blocked if users are not logged in, feature implemented using jsonwebtoken.  
 ![](gif/rustic_signup.gif)
 
 ```
